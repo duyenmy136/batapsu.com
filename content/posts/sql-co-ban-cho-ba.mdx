@@ -1,0 +1,106 @@
+---
+title: "SQL cơ bản cho BA: SELECT, WHERE, JOIN"  
+date: "2026-02-15"
+category: "SQL & Data"
+categorySlug: "sql-data"
+excerpt: "Hướng dẫn SQL cơ bản dành cho BA - từ SELECT đơn giản đến JOIN nhiều bảng, giúp bạn tự tin truy vấn dữ liệu."
+thumbnail: ""
+tags: ["SQL", "database", "data analysis", "query"]
+author: "BA Tập Sự"
+---
+
+## Tại sao BA cần biết SQL?
+
+Nhiều bạn BA nghĩ rằng SQL là của dev, nhưng thực tế **biết SQL là một lợi thế cực lớn** cho BA:
+
+- 🔍 **Tự verify dữ liệu** thay vì nhờ dev
+- 📊 **Phân tích data** để đưa ra quyết định
+- 🐛 **Debug nhanh** khi có bug liên quan đến data
+- 💪 **Tự tin hơn** khi thiết kế database schema
+
+## Bắt đầu với SELECT
+
+Câu lệnh cơ bản nhất:
+
+```sql
+SELECT column1, column2
+FROM table_name;
+```
+
+**Ví dụ thực tế:**
+```sql
+-- Lấy danh sách tất cả khách hàng
+SELECT customer_name, email, phone
+FROM customers;
+```
+
+## Lọc dữ liệu với WHERE
+
+```sql
+SELECT *
+FROM orders
+WHERE status = 'completed'
+  AND total_amount > 1000000;
+```
+
+### Các toán tử phổ biến
+
+| Toán tử | Ý nghĩa | Ví dụ |
+|---------|---------|-------|
+| `=` | Bằng | `status = 'active'` |
+| `!=` hoặc `<>` | Khác | `status != 'deleted'` |
+| `>`, `<` | Lớn hơn, nhỏ hơn | `amount > 100` |
+| `LIKE` | Tìm pattern | `name LIKE '%Nguyễn%'` |
+| `IN` | Trong danh sách | `city IN ('HCM', 'HN')` |
+| `BETWEEN` | Trong khoảng | `date BETWEEN '2026-01-01' AND '2026-12-31'` |
+| `IS NULL` | Giá trị null | `email IS NULL` |
+
+## JOIN - Kết hợp nhiều bảng
+
+Đây là phần **quan trọng nhất** cho BA khi cần lấy dữ liệu từ nhiều bảng:
+
+### INNER JOIN
+Chỉ lấy records khớp ở **cả 2 bảng**:
+
+```sql
+SELECT c.customer_name, o.order_date, o.total_amount
+FROM customers c
+INNER JOIN orders o ON c.customer_id = o.customer_id;
+```
+
+### LEFT JOIN
+Lấy **tất cả** records từ bảng bên trái, kể cả không khớp:
+
+```sql
+-- Tìm khách hàng chưa có đơn hàng nào
+SELECT c.customer_name, o.order_id
+FROM customers c
+LEFT JOIN orders o ON c.customer_id = o.customer_id
+WHERE o.order_id IS NULL;
+```
+
+## Thống kê với GROUP BY
+
+```sql
+-- Thống kê doanh thu theo tháng
+SELECT 
+  DATE_FORMAT(order_date, '%Y-%m') AS month,
+  COUNT(*) AS total_orders,
+  SUM(total_amount) AS revenue
+FROM orders
+WHERE status = 'completed'
+GROUP BY DATE_FORMAT(order_date, '%Y-%m')
+ORDER BY month DESC;
+```
+
+## Tips cho BA khi viết SQL
+
+1. **Luôn dùng alias** cho bảng (c, o, p...) để code dễ đọc
+2. **SELECT cột cụ thể** thay vì `SELECT *` khi production
+3. **Test với LIMIT** trước khi chạy query lớn
+4. **Comment SQL** để giải thích logic phức tạp
+5. **Không bao giờ chạy DELETE/UPDATE** trên production mà chưa backup!
+
+---
+
+*Bài tiếp theo mình sẽ chia sẻ về Subquery và Window Functions nhé! 📊*
