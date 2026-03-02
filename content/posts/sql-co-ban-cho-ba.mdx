@@ -1,9 +1,9 @@
 ---
-title: "SQL cơ bản cho BA: SELECT, WHERE, JOIN"  
+title: "SQL cơ bản cho BA: SELECT, WHERE, JOIN"
 date: "2026-02-15"
 category: "SQL & Data"
 categorySlug: "sql-data"
-excerpt: "Hướng dẫn SQL cơ bản dành cho BA - từ SELECT đơn giản đến JOIN nhiều bảng, giúp bạn tự tin truy vấn dữ liệu."
+excerpt: "Hướng dẫn SQL cơ bản dành cho BA — từ SELECT đơn giản đến JOIN nhiều bảng, giúp bạn tự tin truy vấn dữ liệu."
 thumbnail: ""
 tags: ["SQL", "database", "data analysis", "query"]
 author: "BA Tập Sự"
@@ -11,23 +11,61 @@ author: "BA Tập Sự"
 
 ## Tại sao BA cần biết SQL?
 
-Nhiều bạn BA nghĩ rằng SQL là của dev, nhưng thực tế **biết SQL là một lợi thế cực lớn** cho BA:
+Biết SQL là một **lợi thế cực lớn** cho BA:
 
 - 🔍 **Tự verify dữ liệu** thay vì nhờ dev
-- 📊 **Phân tích data** để đưa ra quyết định
+- 📊 **Phân tích data** để đưa ra quyết định chính xác
 - 🐛 **Debug nhanh** khi có bug liên quan đến data
 - 💪 **Tự tin hơn** khi thiết kế database schema
+
+<Callout type="info" title="BA không cần biết SQL nâng cao">
+Bạn chỉ cần thành thạo SELECT, WHERE, JOIN, GROUP BY là đã cover 80% nhu cầu công việc rồi!
+</Callout>
+
+## Cấu trúc database cơ bản
+
+<Mermaid chart={`
+erDiagram
+    CUSTOMERS ||--o{ ORDERS : "đặt hàng"
+    ORDERS ||--|{ ORDER_ITEMS : "chứa"
+    PRODUCTS ||--o{ ORDER_ITEMS : "thuộc"
+
+    CUSTOMERS {
+        int customer_id PK
+        string name
+        string email
+        string phone
+        date created_at
+    }
+
+    ORDERS {
+        int order_id PK
+        int customer_id FK
+        date order_date
+        string status
+        decimal total_amount
+    }
+
+    PRODUCTS {
+        int product_id PK
+        string product_name
+        decimal price
+        int stock
+    }
+
+    ORDER_ITEMS {
+        int item_id PK
+        int order_id FK
+        int product_id FK
+        int quantity
+        decimal unit_price
+    }
+`} />
 
 ## Bắt đầu với SELECT
 
 Câu lệnh cơ bản nhất:
 
-```sql
-SELECT column1, column2
-FROM table_name;
-```
-
-**Ví dụ thực tế:**
 ```sql
 -- Lấy danh sách tất cả khách hàng
 SELECT customer_name, email, phone
@@ -55,9 +93,31 @@ WHERE status = 'completed'
 | `BETWEEN` | Trong khoảng | `date BETWEEN '2026-01-01' AND '2026-12-31'` |
 | `IS NULL` | Giá trị null | `email IS NULL` |
 
-## JOIN - Kết hợp nhiều bảng
+## JOIN — Kết hợp nhiều bảng
 
-Đây là phần **quan trọng nhất** cho BA khi cần lấy dữ liệu từ nhiều bảng:
+Đây là phần **quan trọng nhất** cho BA:
+
+<Mermaid chart={`
+flowchart LR
+    subgraph INNER["INNER JOIN"]
+        direction TB
+        A1["🟣 Bảng A"] --- AB1["🟣 A ∩ B"] --- B1["🟣 Bảng B"]
+    end
+
+    subgraph LEFT["LEFT JOIN"]
+        direction TB
+        A2["🟣 Tất cả A"] --- AB2["🟣 A ∩ B"] --- B2["⚪ Bảng B"]
+    end
+
+    subgraph RIGHT["RIGHT JOIN"]
+        direction TB
+        A3["⚪ Bảng A"] --- AB3["🟣 A ∩ B"] --- B3["🟣 Tất cả B"]
+    end
+
+    style AB1 fill:#8B5CF6,stroke:#6D28D9,color:#fff
+    style AB2 fill:#8B5CF6,stroke:#6D28D9,color:#fff
+    style AB3 fill:#8B5CF6,stroke:#6D28D9,color:#fff
+`} />
 
 ### INNER JOIN
 Chỉ lấy records khớp ở **cả 2 bảng**:
@@ -69,7 +129,7 @@ INNER JOIN orders o ON c.customer_id = o.customer_id;
 ```
 
 ### LEFT JOIN
-Lấy **tất cả** records từ bảng bên trái, kể cả không khớp:
+Lấy **tất cả** records từ bảng bên trái:
 
 ```sql
 -- Tìm khách hàng chưa có đơn hàng nào
@@ -79,19 +139,47 @@ LEFT JOIN orders o ON c.customer_id = o.customer_id
 WHERE o.order_id IS NULL;
 ```
 
+<Callout type="tip" title="LEFT JOIN + IS NULL">
+Đây là trick phổ biến nhất để tìm "records không có quan hệ" — ví dụ: khách chưa mua hàng, sản phẩm chưa bán được, user chưa đăng nhập...
+</Callout>
+
 ## Thống kê với GROUP BY
 
 ```sql
 -- Thống kê doanh thu theo tháng
-SELECT 
+SELECT
   DATE_FORMAT(order_date, '%Y-%m') AS month,
   COUNT(*) AS total_orders,
-  SUM(total_amount) AS revenue
+  SUM(total_amount) AS revenue,
+  AVG(total_amount) AS avg_order_value
 FROM orders
 WHERE status = 'completed'
 GROUP BY DATE_FORMAT(order_date, '%Y-%m')
 ORDER BY month DESC;
 ```
+
+## Ví dụ thực tế: Report cho Stakeholder
+
+```sql
+-- Top 10 khách hàng mua nhiều nhất
+SELECT
+  c.customer_name,
+  COUNT(o.order_id) AS total_orders,
+  SUM(o.total_amount) AS total_spent,
+  MAX(o.order_date) AS last_order_date
+FROM customers c
+INNER JOIN orders o ON c.customer_id = o.customer_id
+WHERE o.status = 'completed'
+  AND o.order_date >= '2026-01-01'
+GROUP BY c.customer_id, c.customer_name
+HAVING total_spent > 5000000
+ORDER BY total_spent DESC
+LIMIT 10;
+```
+
+<Callout type="warning" title="Lưu ý quan trọng">
+Không bao giờ chạy DELETE/UPDATE trên production mà chưa backup! Luôn test query trên staging environment trước.
+</Callout>
 
 ## Tips cho BA khi viết SQL
 
@@ -99,7 +187,7 @@ ORDER BY month DESC;
 2. **SELECT cột cụ thể** thay vì `SELECT *` khi production
 3. **Test với LIMIT** trước khi chạy query lớn
 4. **Comment SQL** để giải thích logic phức tạp
-5. **Không bao giờ chạy DELETE/UPDATE** trên production mà chưa backup!
+5. **Dùng formatting tool** để SQL dễ đọc hơn
 
 ---
 

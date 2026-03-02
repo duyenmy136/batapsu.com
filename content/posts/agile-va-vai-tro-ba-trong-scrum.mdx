@@ -1,82 +1,136 @@
 ---
 title: "Agile và vai trò của BA trong Scrum Team"
-date: "2026-02-25"
+date: "2026-02-20"
 category: "Agile & Scrum"
 categorySlug: "agile-scrum"
-excerpt: "BA làm gì trong Scrum? Có cần BA trong Agile không? Cùng tìm hiểu vai trò thực tế của BA trong Scrum Team."
+excerpt: "Hiểu rõ Agile/Scrum framework và vai trò không thể thiếu của BA trong Scrum Team. Kèm các ceremonies và artifacts thực tế."
 thumbnail: ""
-tags: ["Agile", "Scrum", "BA role", "sprint"]
+tags: ["agile", "scrum", "sprint", "product backlog", "user story"]
 author: "BA Tập Sự"
 ---
 
-## BA có tồn tại trong Scrum không?
+## Agile là gì?
 
-Câu hỏi này rất hay gặp! Trong Scrum framework chính thức, chỉ có 3 role: **Product Owner, Scrum Master, và Developers**. Vậy BA ở đâu? 🤔
+**Agile** không phải là một framework cụ thể, mà là một **tư duy** (mindset) về phát triển phần mềm, tập trung vào:
 
-> Trên thực tế, BA thường đảm nhận một phần công việc của **Product Owner** hoặc nằm trong **Development Team** với vai trò phân tích.
+- 🔄 **Lặp lại** (Iterative) — Phát triển từng phần nhỏ
+- 🤝 **Hợp tác** (Collaboration) — Làm việc chặt chẽ với khách hàng
+- ⚡ **Linh hoạt** (Adaptive) — Sẵn sàng thay đổi
+- 🚀 **Tốc độ** (Speed) — Deliver giá trị nhanh
 
-## Vai trò BA trong Scrum Team
+<Callout type="info" title="Agile vs Waterfall">
+Waterfall: Phân tích hết → Thiết kế hết → Code hết → Test hết → Delivery (rủi ro cao!)
+Agile: Làm từng phần nhỏ, mỗi sprint 2 tuần deliver 1 phần hoạt động được.
+</Callout>
 
-### 1. Hỗ trợ Product Owner
+## Scrum Framework tổng quan
 
-- Phân tích và chi tiết hóa **Product Backlog Items**
-- Viết **User Stories** với Acceptance Criteria
-- Ưu tiên hóa backlog dựa trên business value
-- Giao tiếp với stakeholder để clarify requirements
+<Mermaid chart={`
+flowchart LR
+    PB["📋 Product\nBacklog"] --> SP["🎯 Sprint\nPlanning"]
+    SP --> SB["📝 Sprint\nBacklog"]
+    SB --> DEV["💻 Sprint\n2-4 tuần"]
+    DEV --> SR["🔍 Sprint\nReview"]
+    SR --> RETRO["🔄 Sprint\nRetrospective"]
+    RETRO --> SP
+    DEV -.->|Daily Standup| DEV
+    SR --> INC["🚀 Product\nIncrement"]
 
-### 2. Tham gia Sprint Events
+    style PB fill:#EDE9FE,stroke:#8B5CF6,color:#333
+    style SP fill:#FCE7F3,stroke:#EC4899,color:#333
+    style SB fill:#EDE9FE,stroke:#8B5CF6,color:#333
+    style DEV fill:#8B5CF6,stroke:#6D28D9,color:#fff
+    style SR fill:#FCE7F3,stroke:#EC4899,color:#333
+    style RETRO fill:#EDE9FE,stroke:#8B5CF6,color:#333
+    style INC fill:#D1FAE5,stroke:#10B981,color:#333
+`} />
 
-| Event | Vai trò của BA |
-|-------|---------------|
-| Sprint Planning | Giải thích user stories cho dev team |
-| Daily Standup | Chia sẻ tiến độ phân tích, blockers |
-| Sprint Review | Demo & thu thập feedback |
-| Sprint Retrospective | Đóng góp cải thiện quy trình |
+## Các vai trò trong Scrum
 
-### 3. Backlog Grooming / Refinement
+<Mermaid chart={`
+graph TB
+    subgraph SCRUM["🏉 Scrum Team"]
+        PO["🎯 Product Owner\nQuyết định WHAT"]
+        SM["🛡️ Scrum Master\nBảo vệ team, loại bỏ blockers"]
+        DT["💻 Development Team\nQuyết định HOW"]
+    end
 
-Đây là hoạt động **quan trọng nhất** của BA trong Scrum:
+    BA["💜 Business Analyst\nCầu nối PO ↔ Dev Team"]
+    STAKE["👥 Stakeholders"]
 
-- Tách **Epic** thành các **User Stories** nhỏ hơn
-- Viết **Acceptance Criteria** chi tiết
-- Chuẩn bị mockup/wireframe nếu cần
-- Đảm bảo stories đạt **Definition of Ready (DoR)**
+    STAKE --> PO
+    PO <--> BA
+    BA <--> DT
+    SM --> SCRUM
 
-## User Story Template
+    style BA fill:#8B5CF6,stroke:#6D28D9,color:#fff,stroke-width:3px
+    style PO fill:#F59E0B,stroke:#D97706,color:#333
+    style SM fill:#10B981,stroke:#059669,color:#fff
+    style DT fill:#3B82F6,stroke:#2563EB,color:#fff
+`} />
 
-Format kinh điển mà BA nào cũng cần biết:
+## BA làm gì trong mỗi Sprint?
 
-```
-As a [role/persona]
-I want to [action/feature]
-So that [benefit/value]
-```
+### 📋 Sprint Planning
+- Giải thích User Stories cho dev team
+- Clarify acceptance criteria
+- Hỗ trợ estimation (story points)
+- Ưu tiên backlog items cùng PO
+
+### 🏃 Trong Sprint
+- Trả lời câu hỏi từ dev team
+- Refine backlog cho sprint tiếp theo
+- Review wireframe/mockup với UX
+- Chuẩn bị UAT scenarios
+
+### 📊 Sprint Review / Demo
+- Hỗ trợ demo cho stakeholders
+- Thu thập feedback
+- Update backlog dựa trên feedback
+
+### 🔄 Retrospective
+- Chia sẻ điều làm tốt / cần cải thiện
+- Đề xuất cải tiến quy trình
+
+<Callout type="tip" title="BA trong Scrum = Proxy PO">
+Ở nhiều công ty VN, BA đảm nhận luôn vai trò Product Owner hoặc ít nhất là "Proxy PO" — người đại diện PO làm việc trực tiếp với dev team.
+</Callout>
+
+## User Story Format
+
+Công thức viết User Story chuẩn:
+
+> **As a** [người dùng], **I want** [chức năng], **so that** [lý do/giá trị]
 
 **Ví dụ:**
+
 ```
-As a khách hàng mới
-I want to đăng ký tài khoản bằng email
-So that tôi có thể mua hàng online
+As a khách hàng mới,
+I want đăng ký tài khoản bằng email,
+So that tôi có thể mua hàng online.
+
+Acceptance Criteria:
+✅ Email phải hợp lệ (có @, domain)
+✅ Password tối thiểu 8 ký tự, 1 chữ hoa, 1 số
+✅ Gửi email xác nhận sau khi đăng ký
+✅ Hiển thị thông báo lỗi nếu email đã tồn tại
 ```
 
-### INVEST Criteria
+## Definition of Done (DoD)
 
-Một User Story tốt cần đạt tiêu chí **INVEST**:
+| Tiêu chí | Mô tả |
+|----------|-------|
+| ✅ Code complete | Dev hoàn thành coding |
+| ✅ Code reviewed | Đã được review bởi peer |
+| ✅ Tests passed | Unit test + integration test pass |
+| ✅ QA approved | QA test và approve |
+| ✅ BA accepted | BA verify theo acceptance criteria |
+| ✅ Documented | Tài liệu được update |
 
-- **I**ndependent - Độc lập với stories khác
-- **N**egotiable - Có thể thương lượng
-- **V**aluable - Mang lại giá trị
-- **E**stimable - Ước lượng được
-- **S**mall - Đủ nhỏ để fit trong 1 sprint
-- **T**estable - Kiểm tra được
-
-## Tips cho BA trong Agile
-
-1. **Đi trước 1-2 sprint** - Always prepare stories cho sprint tiếp theo
-2. **Collaboration > Documentation** - Ưu tiên trao đổi trực tiếp
-3. **Think MVP** - Bắt đầu từ Minimum Viable Product
-4. **Continuous feedback** - Luôn thu thập phản hồi và điều chỉnh
+<Callout type="success" title="Key takeaway">
+BA trong Agile không chỉ viết tài liệu — BA là người ensure rằng team luôn hiểu đúng, build đúng, và deliver đúng giá trị cho business!
+</Callout>
 
 ---
 
-*Bạn đang làm BA theo Agile hay Waterfall? Chia sẻ trải nghiệm của bạn nhé! 🚀*
+*Ở bài tiếp theo, mình sẽ chia sẻ về cách viết Acceptance Criteria chuẩn INVEST nhé! 🎯*
