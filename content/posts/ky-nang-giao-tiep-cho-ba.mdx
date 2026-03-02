@@ -21,16 +21,16 @@ BA là cầu nối giữa rất nhiều bên, nên khả năng truyền đạt t
 
 ## BA giao tiếp với ai?
 
-<Mermaid chart={`
+```mermaid
 graph TB
     BA["💜 Business Analyst"]
 
-    BA <-->|"Nhu cầu & Feedback"| CLIENT["👤 Khách Hàng"]
-    BA <-->|"Requirements & Priority"| PO["🎯 Product Owner"]
-    BA <-->|"Specs & Clarification"| DEV["💻 Dev Team"]
-    BA <-->|"Test Cases & Bugs"| QA["🧪 QA Team"]
-    BA <-->|"Wireframe & UX"| UX["🎨 Designer"]
-    BA <-->|"Report & Impact"| MGT["👔 Management"]
+    BA <-->|"Nhu cầu"| CLIENT["👤 Khách Hàng"]
+    BA <-->|"Requirements"| PO["🎯 Product Owner"]
+    BA <-->|"Specs"| DEV["💻 Dev Team"]
+    BA <-->|"Test Cases"| QA["🧪 QA Team"]
+    BA <-->|"Wireframe"| UX["🎨 Designer"]
+    BA <-->|"Report"| MGT["👔 Management"]
 
     style BA fill:#8B5CF6,stroke:#6D28D9,color:#fff,stroke-width:3px
     style CLIENT fill:#FCE7F3,stroke:#EC4899,color:#333
@@ -39,7 +39,7 @@ graph TB
     style QA fill:#D1FAE5,stroke:#10B981,color:#333
     style UX fill:#FCE7F3,stroke:#EC4899,color:#333
     style MGT fill:#EDE9FE,stroke:#8B5CF6,color:#333
-`} />
+```
 
 ## 5 Kỹ năng giao tiếp cốt lõi
 
@@ -47,14 +47,14 @@ graph TB
 
 Đây là kỹ năng **số 1** mà nhiều người bỏ qua:
 
-- **Tập trung hoàn toàn** vào người nói (bỏ điện thoại xuống!)
+- **Tập trung hoàn toàn** vào người nói
 - **Paraphrase** lại: "Nếu mình hiểu đúng, ý anh/chị là..."
-- **Đặt câu hỏi mở** để clarify: "Anh/chị có thể giải thích thêm về...?"
+- **Đặt câu hỏi mở** để clarify
 - **Không ngắt lời** dù bạn đã biết câu trả lời
 - **Ghi chép** keywords quan trọng
 
 <Callout type="tip" title="Kỹ thuật Paraphrase">
-Sau mỗi phần stakeholder chia sẻ, hãy tóm tắt lại: "Để mình confirm nhé — ý anh/chị là [ABC], có đúng không ạ?" Điều này giúp tránh hiểu sai và stakeholder cảm thấy được lắng nghe.
+Sau mỗi phần stakeholder chia sẻ, hãy tóm tắt lại: "Để mình confirm nhé — ý anh/chị là [ABC], có đúng không ạ?" Giúp tránh hiểu sai và stakeholder cảm thấy được lắng nghe.
 </Callout>
 
 ### 2. ✍️ Viết rõ ràng (Clear Writing)
@@ -64,7 +64,7 @@ BA viết rất nhiều: email, tài liệu, user stories, meeting notes...
 **Công thức email hiệu quả:**
 
 ```
-Subject: [ACTION REQUIRED] Review User Stories cho Sprint 15
+Subject: [ACTION REQUIRED] Review User Stories Sprint 15
 
 Chào anh/chị,
 
@@ -84,44 +84,39 @@ Thanks!
 
 **Framework STAR cho presentation BA:**
 
-<Mermaid chart={`
+```mermaid
 flowchart LR
-    S["🎯 Situation\nBối cảnh hiện tại"] --> T["🔍 Task\nVấn đề cần giải quyết"]
-    T --> A["💡 Action\nGiải pháp đề xuất"]
-    A --> R["📈 Result\nKết quả kỳ vọng\n& Next steps"]
+    S["🎯 Situation"] --> T["🔍 Task"]
+    T --> A["💡 Action"]
+    A --> R["📈 Result"]
 
     style S fill:#EDE9FE,stroke:#8B5CF6,color:#333
     style T fill:#FCE7F3,stroke:#EC4899,color:#333
     style A fill:#EDE9FE,stroke:#8B5CF6,color:#333
     style R fill:#D1FAE5,stroke:#10B981,color:#333
-`} />
+```
 
 ### 4. 🤝 Đàm phán (Negotiation)
 
-Khi stakeholder muốn feature A, dev nói không khả thi, PM nói không đủ budget — BA phải **đàm phán** để tìm solution win-win.
-
 **Nguyên tắc đàm phán:**
-- 🔍 Luôn **hiểu "Why"** đằng sau yêu cầu
+- 🔍 Luôn hiểu **"Why"** đằng sau yêu cầu
 - 💡 Đề xuất **alternatives** thay vì nói "Không"
 - 📊 Dùng **data** để support argument
 - 🎯 Focus vào **business value**
-- ⏰ Đề xuất **phasing** — "Sprint này làm phần core, sprint sau enhance"
+- ⏰ Đề xuất **phasing** — "Sprint này làm core, sprint sau enhance"
 
 ### 5. 💡 Facilitate Meetings
-
-BA thường là người **dẫn dắt cuộc họp**:
 
 | Giai đoạn | Checklist |
 |-----------|-----------|
 | **Trước meeting** | ✅ Gửi agenda trước 24h |
-| | ✅ Mời đúng người (không thừa, không thiếu) |
+| | ✅ Mời đúng người |
 | | ✅ Chuẩn bị tài liệu/demo |
 | **Trong meeting** | ✅ Timeboxing cho từng topic |
 | | ✅ Parking lot cho off-topic items |
 | | ✅ Đảm bảo mọi người đều có cơ hội nói |
 | **Sau meeting** | ✅ Gửi meeting notes trong 24h |
 | | ✅ List rõ action items + owner + deadline |
-| | ✅ Follow up items chưa giải quyết |
 
 ## Communication Matrix
 
@@ -134,7 +129,7 @@ BA thường là người **dẫn dắt cuộc họp**:
 | End Users | Đơn giản, dễ hiểu | Training, feedback | As needed |
 
 <Callout type="success" title="Mẹo vàng">
-**Mirror** ngôn ngữ của stakeholder — nếu C-Level nói "revenue impact", bạn dùng "revenue impact". Nếu dev nói "API endpoint", bạn dùng "API endpoint". Điều này tạo trust và giảm miscommunication!
+Mirror ngôn ngữ của stakeholder — nếu C-Level nói "revenue impact", bạn dùng "revenue impact". Nếu dev nói "API endpoint", bạn dùng "API endpoint". Điều này tạo trust và giảm miscommunication!
 </Callout>
 
 ---

@@ -11,7 +11,7 @@ author: "BA Tập Sự"
 
 ## Agile là gì?
 
-**Agile** không phải là một framework cụ thể, mà là một **tư duy** (mindset) về phát triển phần mềm, tập trung vào:
+**Agile** không phải là một framework cụ thể, mà là một **tư duy** (mindset) về phát triển phần mềm:
 
 - 🔄 **Lặp lại** (Iterative) — Phát triển từng phần nhỏ
 - 🤝 **Hợp tác** (Collaboration) — Làm việc chặt chẽ với khách hàng
@@ -19,43 +19,38 @@ author: "BA Tập Sự"
 - 🚀 **Tốc độ** (Speed) — Deliver giá trị nhanh
 
 <Callout type="info" title="Agile vs Waterfall">
-Waterfall: Phân tích hết → Thiết kế hết → Code hết → Test hết → Delivery (rủi ro cao!)
+Waterfall: Phân tích hết → Thiết kế hết → Code hết → Test hết → Delivery (rủi ro cao!).
 Agile: Làm từng phần nhỏ, mỗi sprint 2 tuần deliver 1 phần hoạt động được.
 </Callout>
 
 ## Scrum Framework tổng quan
 
-<Mermaid chart={`
+```mermaid
 flowchart LR
     PB["📋 Product\nBacklog"] --> SP["🎯 Sprint\nPlanning"]
     SP --> SB["📝 Sprint\nBacklog"]
     SB --> DEV["💻 Sprint\n2-4 tuần"]
     DEV --> SR["🔍 Sprint\nReview"]
-    SR --> RETRO["🔄 Sprint\nRetrospective"]
+    SR --> RETRO["🔄 Sprint\nRetro"]
     RETRO --> SP
-    DEV -.->|Daily Standup| DEV
     SR --> INC["🚀 Product\nIncrement"]
 
     style PB fill:#EDE9FE,stroke:#8B5CF6,color:#333
-    style SP fill:#FCE7F3,stroke:#EC4899,color:#333
-    style SB fill:#EDE9FE,stroke:#8B5CF6,color:#333
     style DEV fill:#8B5CF6,stroke:#6D28D9,color:#fff
-    style SR fill:#FCE7F3,stroke:#EC4899,color:#333
-    style RETRO fill:#EDE9FE,stroke:#8B5CF6,color:#333
     style INC fill:#D1FAE5,stroke:#10B981,color:#333
-`} />
+```
 
 ## Các vai trò trong Scrum
 
-<Mermaid chart={`
+```mermaid
 graph TB
     subgraph SCRUM["🏉 Scrum Team"]
-        PO["🎯 Product Owner\nQuyết định WHAT"]
-        SM["🛡️ Scrum Master\nBảo vệ team, loại bỏ blockers"]
-        DT["💻 Development Team\nQuyết định HOW"]
+        PO["🎯 Product Owner"]
+        SM["🛡️ Scrum Master"]
+        DT["💻 Development Team"]
     end
 
-    BA["💜 Business Analyst\nCầu nối PO ↔ Dev Team"]
+    BA["💜 Business Analyst"]
     STAKE["👥 Stakeholders"]
 
     STAKE --> PO
@@ -67,7 +62,7 @@ graph TB
     style PO fill:#F59E0B,stroke:#D97706,color:#333
     style SM fill:#10B981,stroke:#059669,color:#fff
     style DT fill:#3B82F6,stroke:#2563EB,color:#fff
-`} />
+```
 
 ## BA làm gì trong mỗi Sprint?
 
@@ -75,18 +70,15 @@ graph TB
 - Giải thích User Stories cho dev team
 - Clarify acceptance criteria
 - Hỗ trợ estimation (story points)
-- Ưu tiên backlog items cùng PO
 
 ### 🏃 Trong Sprint
 - Trả lời câu hỏi từ dev team
 - Refine backlog cho sprint tiếp theo
 - Review wireframe/mockup với UX
-- Chuẩn bị UAT scenarios
 
 ### 📊 Sprint Review / Demo
 - Hỗ trợ demo cho stakeholders
-- Thu thập feedback
-- Update backlog dựa trên feedback
+- Thu thập feedback & update backlog
 
 ### 🔄 Retrospective
 - Chia sẻ điều làm tốt / cần cải thiện

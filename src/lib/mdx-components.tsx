@@ -1,7 +1,7 @@
-import Mermaid from '@/components/Mermaid';
+import MermaidPre from '@/components/MermaidPre';
 import Callout from '@/components/Callout';
 
 export const mdxComponents = {
-    Mermaid,
     Callout,
+    pre: MermaidPre,
 };

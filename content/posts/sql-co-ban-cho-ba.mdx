@@ -24,18 +24,17 @@ Bạn chỉ cần thành thạo SELECT, WHERE, JOIN, GROUP BY là đã cover 80%
 
 ## Cấu trúc database cơ bản
 
-<Mermaid chart={`
+```mermaid
 erDiagram
-    CUSTOMERS ||--o{ ORDERS : "đặt hàng"
-    ORDERS ||--|{ ORDER_ITEMS : "chứa"
-    PRODUCTS ||--o{ ORDER_ITEMS : "thuộc"
+    CUSTOMERS ||--o{ ORDERS : places
+    ORDERS ||--|{ ORDER_ITEMS : contains
+    PRODUCTS ||--o{ ORDER_ITEMS : includes
 
     CUSTOMERS {
         int customer_id PK
         string name
         string email
         string phone
-        date created_at
     }
 
     ORDERS {
@@ -58,13 +57,10 @@ erDiagram
         int order_id FK
         int product_id FK
         int quantity
-        decimal unit_price
     }
-`} />
+```
 
 ## Bắt đầu với SELECT
-
-Câu lệnh cơ bản nhất:
 
 ```sql
 -- Lấy danh sách tất cả khách hàng
@@ -86,8 +82,7 @@ WHERE status = 'completed'
 | Toán tử | Ý nghĩa | Ví dụ |
 |---------|---------|-------|
 | `=` | Bằng | `status = 'active'` |
-| `!=` hoặc `<>` | Khác | `status != 'deleted'` |
-| `>`, `<` | Lớn hơn, nhỏ hơn | `amount > 100` |
+| `!=` | Khác | `status != 'deleted'` |
 | `LIKE` | Tìm pattern | `name LIKE '%Nguyễn%'` |
 | `IN` | Trong danh sách | `city IN ('HCM', 'HN')` |
 | `BETWEEN` | Trong khoảng | `date BETWEEN '2026-01-01' AND '2026-12-31'` |
@@ -95,31 +90,8 @@ WHERE status = 'completed'
 
 ## JOIN — Kết hợp nhiều bảng
 
-Đây là phần **quan trọng nhất** cho BA:
-
-<Mermaid chart={`
-flowchart LR
-    subgraph INNER["INNER JOIN"]
-        direction TB
-        A1["🟣 Bảng A"] --- AB1["🟣 A ∩ B"] --- B1["🟣 Bảng B"]
-    end
-
-    subgraph LEFT["LEFT JOIN"]
-        direction TB
-        A2["🟣 Tất cả A"] --- AB2["🟣 A ∩ B"] --- B2["⚪ Bảng B"]
-    end
-
-    subgraph RIGHT["RIGHT JOIN"]
-        direction TB
-        A3["⚪ Bảng A"] --- AB3["🟣 A ∩ B"] --- B3["🟣 Tất cả B"]
-    end
-
-    style AB1 fill:#8B5CF6,stroke:#6D28D9,color:#fff
-    style AB2 fill:#8B5CF6,stroke:#6D28D9,color:#fff
-    style AB3 fill:#8B5CF6,stroke:#6D28D9,color:#fff
-`} />
-
 ### INNER JOIN
+
 Chỉ lấy records khớp ở **cả 2 bảng**:
 
 ```sql
@@ -129,6 +101,7 @@ INNER JOIN orders o ON c.customer_id = o.customer_id;
 ```
 
 ### LEFT JOIN
+
 Lấy **tất cả** records từ bảng bên trái:
 
 ```sql
@@ -183,8 +156,8 @@ Không bao giờ chạy DELETE/UPDATE trên production mà chưa backup! Luôn t
 
 ## Tips cho BA khi viết SQL
 
-1. **Luôn dùng alias** cho bảng (c, o, p...) để code dễ đọc
-2. **SELECT cột cụ thể** thay vì `SELECT *` khi production
+1. **Luôn dùng alias** cho bảng để code dễ đọc
+2. **SELECT cột cụ thể** thay vì `SELECT *`
 3. **Test với LIMIT** trước khi chạy query lớn
 4. **Comment SQL** để giải thích logic phức tạp
 5. **Dùng formatting tool** để SQL dễ đọc hơn

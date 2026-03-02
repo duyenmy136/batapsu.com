@@ -14,17 +14,17 @@ author: "BA Tập Sự"
 Thu thập yêu cầu (Requirements Elicitation) là **bước nền tảng** trong quy trình BA. Nếu thu thập sai → phân tích sai → build sai → tốn tiền & thời gian fix.
 
 <Callout type="warning" title="Sự thật phũ phàng">
-Theo nghiên cứu của Standish Group, **68% dự án thất bại** có nguyên nhân từ yêu cầu không rõ ràng hoặc thay đổi liên tục.
+Theo nghiên cứu của Standish Group, 68% dự án thất bại có nguyên nhân từ yêu cầu không rõ ràng hoặc thay đổi liên tục.
 </Callout>
 
 ## Quy trình thu thập yêu cầu
 
-<Mermaid chart={`
+```mermaid
 flowchart TB
-    PREP["📋 Chuẩn bị\nXác định stakeholders\nNghiên cứu domain"] --> ELICIT["🔍 Thu thập\n5 kỹ thuật chính"]
-    ELICIT --> ANALYZE["📊 Phân tích\nPhân loại & ưu tiên\nTìm gaps & conflicts"]
-    ANALYZE --> DOC["📝 Tài liệu hóa\nBRD / User Stories\nAcceptance Criteria"]
-    DOC --> VALIDATE["✅ Xác nhận\nReview với stakeholders\nSign-off"]
+    PREP["📋 Chuẩn bị"] --> ELICIT["🔍 Thu thập"]
+    ELICIT --> ANALYZE["📊 Phân tích"]
+    ANALYZE --> DOC["📝 Tài liệu hóa"]
+    DOC --> VALIDATE["✅ Xác nhận"]
     VALIDATE -.->|Thay đổi| ELICIT
 
     style PREP fill:#EDE9FE,stroke:#8B5CF6,color:#333
@@ -32,7 +32,7 @@ flowchart TB
     style ANALYZE fill:#FCE7F3,stroke:#EC4899,color:#333
     style DOC fill:#EDE9FE,stroke:#8B5CF6,color:#333
     style VALIDATE fill:#D1FAE5,stroke:#10B981,color:#333
-`} />
+```
 
 ## 5 Kỹ thuật chính
 
@@ -52,17 +52,12 @@ flowchart TB
 4. Follow up các điểm chưa rõ
 
 <Callout type="tip" title="Mẹo phỏng vấn">
-Dùng kỹ thuật **"5 Whys"** — hỏi "Tại sao?" 5 lần liên tiếp để tìm ra root cause thực sự. Ví dụ: "Tại sao cần export Excel?" → "Vì cần so sánh data" → "Tại sao cần so sánh?" → Có thể giải pháp thực sự là dashboard!
+Dùng kỹ thuật "5 Whys" — hỏi "Tại sao?" 5 lần liên tiếp để tìm ra root cause thực sự.
 </Callout>
 
 ### 2. 📝 Khảo sát (Survey/Questionnaire)
 
 Hiệu quả khi cần thu thập ý kiến từ **số lượng lớn** người dùng.
-
-**Khi nào dùng:**
-- Validate giả thuyết với nhiều users
-- Thu thập data định lượng
-- Users phân tán nhiều nơi
 
 | Ưu điểm | Nhược điểm |
 |----------|-----------|
@@ -83,26 +78,19 @@ Quan sát trực tiếp giúp bạn phát hiện:
 
 ### 4. 🧑‍🤝‍🧑 Workshop / Brainstorming
 
-Tập hợp nhiều stakeholders cùng thảo luận để:
-- Đồng bộ hiểu biết
-- Giải quyết conflicts
-- Tạo ra ý tưởng mới
+Tập hợp nhiều stakeholders cùng thảo luận:
 
-<Mermaid chart={`
+```mermaid
 flowchart LR
-    A["🎯 Mục tiêu rõ ràng"] --> B["👥 Mời đúng người"]
-    B --> C["📋 Agenda chi tiết"]
+    A["🎯 Mục tiêu"] --> B["👥 Mời đúng người"]
+    B --> C["📋 Agenda"]
     C --> D["⏱️ Timeboxing"]
-    D --> E["📝 Ghi chép kết quả"]
+    D --> E["📝 Ghi chép"]
     E --> F["✅ Action Items"]
 
     style A fill:#EDE9FE,stroke:#8B5CF6,color:#333
-    style B fill:#FCE7F3,stroke:#EC4899,color:#333
-    style C fill:#EDE9FE,stroke:#8B5CF6,color:#333
-    style D fill:#FCE7F3,stroke:#EC4899,color:#333
-    style E fill:#EDE9FE,stroke:#8B5CF6,color:#333
     style F fill:#D1FAE5,stroke:#10B981,color:#333
-`} />
+```
 
 ### 5. 📄 Phân tích tài liệu (Document Analysis)
 
@@ -111,10 +99,9 @@ Nghiên cứu các tài liệu có sẵn:
 - 📊 Báo cáo kinh doanh
 - 🗃️ Database schema hiện tại
 - 📱 Screenshots hệ thống cũ
-- 📧 Email trao đổi nghiệp vụ
 
 <Callout type="success" title="Kết hợp nhiều kỹ thuật">
-BA giỏi không bao giờ chỉ dùng 1 kỹ thuật! Hãy kết hợp: Interview để hiểu sâu → Survey để validate rộng → Observation để xác nhận thực tế.
+BA giỏi không bao giờ chỉ dùng 1 kỹ thuật! Interview để hiểu sâu → Survey để validate rộng → Observation để xác nhận thực tế.
 </Callout>
 
 ## So sánh nhanh 5 kỹ thuật
