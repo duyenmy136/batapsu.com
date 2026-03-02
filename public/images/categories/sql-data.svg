@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+      <circle cx="128" cy="128" r="120" fill="#E0E7FF"/>
+      <circle cx="128" cy="128" r="105" fill="#C7D2FE"/>
+      <!-- Database cylinder -->
+      <ellipse cx="110" cy="100" rx="40" ry="12" fill="#6366F1" opacity="0.3"/>
+      <rect x="70" y="100" width="80" height="50" rx="0" fill="#818CF8"/>
+      <ellipse cx="110" cy="100" rx="40" ry="12" fill="#6366F1"/>
+      <ellipse cx="110" cy="125" rx="40" ry="12" fill="none" stroke="#6366F1" stroke-width="2" opacity="0.5"/>
+      <ellipse cx="110" cy="150" rx="40" ry="12" fill="#6366F1"/>
+      <!-- Cute face on database -->
+      <circle cx="98" cy="120" r="3" fill="#312E81"/>
+      <circle cx="122" cy="120" r="3" fill="#312E81"/>
+      <path d="M104 130 Q110 136 116 130" fill="none" stroke="#312E81" stroke-width="2" stroke-linecap="round"/>
+      <!-- Mini bar chart -->
+      <rect x="165" y="130" width="12" height="30" rx="3" fill="#A5B4FC"/>
+      <rect x="180" y="115" width="12" height="45" rx="3" fill="#818CF8"/>
+      <rect x="195" y="100" width="12" height="60" rx="3" fill="#6366F1"/>
+      <!-- Sparkle -->
+      <text x="175" y="95" font-size="20" fill="#6366F1">✦</text>
+    </svg>

@@ -1,9 +1,11 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { getAllSlugs, getPostBySlug, getPostsByCategory, getCategoryBySlug } from '@/lib/posts';
+import Image from 'next/image';
+import { getAllSlugs, getPostBySlug, getPostsByCategory, getCategoryBySlug, getSeriesForPost } from '@/lib/posts';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import remarkGfm from 'remark-gfm';
 import BlogCard from '@/components/BlogCard';
+import SeriesNav from '@/components/SeriesNav';
 import { mdxComponents } from '@/lib/mdx-components';
 
 interface Props {
@@ -20,6 +22,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const post = getPostBySlug(slug);
     if (!post) return { title: 'Không tìm thấy bài viết' };
 
+    const ogImage = post.thumbnail
+        ? `https://batapsu.com/images/posts/${post.thumbnail}`
+        : 'https://batapsu.com/og-image.png';
+
     return {
         title: post.title,
         description: post.excerpt,
@@ -30,6 +36,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             publishedTime: post.date,
             authors: [post.author],
             tags: post.tags,
+            images: [{ url: ogImage, width: 1200, height: 630, alt: post.title }],
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: post.title,
+            description: post.excerpt,
+            images: [ogImage],
         },
     };
 }
@@ -57,6 +70,7 @@ export default async function BlogPostPage({ params }: Props) {
     const relatedPosts = getPostsByCategory(post.categorySlug)
         .filter((p) => p.slug !== post.slug)
         .slice(0, 3);
+    const seriesInfo = getSeriesForPost(slug);
 
     const formatDate = (dateStr: string) => {
         return new Date(dateStr).toLocaleDateString('vi-VN', {
@@ -70,19 +84,37 @@ export default async function BlogPostPage({ params }: Props) {
         <article className="article">
             <div className="container">
                 {/* Header */}
-                <header className="article__header">
-                    {category && (
-                        <Link href={`/categories/${category.slug}`} className="article__category">
-                            {category.icon} {category.name}
-                        </Link>
-                    )}
-                    <h1 className="article__title">{post.title}</h1>
-                    <div className="article__meta">
+                <header className="article__header" style={{ textAlign: 'center', marginBottom: 'var(--space-8)' }}>
+                    <div className="article__meta" style={{ justifyContent: 'center', marginBottom: 'var(--space-4)', gap: '1rem' }}>
+                        {category && (
+                            <Link href={`/categories/${category.slug}`} className="article__category" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'var(--surface-hover)', padding: '0.25rem 0.75rem', borderRadius: 'var(--radius-full)', textDecoration: 'none', color: 'var(--text-primary)', fontWeight: '500' }}>
+                                {category.icon ? (
+                                    <Image src={category.icon} alt={category.name} width={20} height={20} />
+                                ) : (
+                                    <span>{category.name}</span>
+                                )}
+                                <span>{category.name}</span>
+                            </Link>
+                        )}
                         <span className="article__meta-item">👩‍💻 {post.author}</span>
                         <span className="article__meta-item">📅 {formatDate(post.date)}</span>
                         <span className="article__meta-item">⏱ {post.readingTime}</span>
                     </div>
+                    <h1 className="article__title" style={{ fontSize: 'var(--text-4xl)', lineHeight: '1.2', marginBottom: 'var(--space-6)', maxWidth: '900px', marginLeft: 'auto', marginRight: 'auto' }}>{post.title}</h1>
                 </header>
+
+                {/* Hero Thumbnail */}
+                {post.thumbnail && (
+                    <div className="article__hero" style={{ width: '100%', maxWidth: '1000px', margin: '0 auto var(--space-10) auto', aspectRatio: '16/9', position: 'relative', borderRadius: 'var(--radius-xl)', overflow: 'hidden', boxShadow: 'var(--shadow-md)' }}>
+                        <Image
+                            src={`/images/posts/${post.thumbnail}`}
+                            alt={post.title}
+                            fill
+                            style={{ objectFit: 'cover' }}
+                            priority
+                        />
+                    </div>
+                )}
 
                 {/* Content */}
                 <div className="article__content">
@@ -95,6 +127,17 @@ export default async function BlogPostPage({ params }: Props) {
                         {post.tags.map((tag) => (
                             <span key={tag} className="tag">#{tag}</span>
                         ))}
+                    </div>
+                )}
+
+                {/* Series Navigation */}
+                {seriesInfo && (
+                    <div style={{ maxWidth: '760px', margin: 'var(--space-8) auto 0' }}>
+                        <SeriesNav
+                            series={seriesInfo.series}
+                            posts={seriesInfo.posts}
+                            currentIndex={seriesInfo.currentIndex}
+                        />
                     </div>
                 )}
 

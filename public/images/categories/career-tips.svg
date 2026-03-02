@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+      <circle cx="128" cy="128" r="120" fill="#FAE8FF"/>
+      <circle cx="128" cy="128" r="105" fill="#F0ABFC"/>
+      <!-- Light bulb body -->
+      <circle cx="128" cy="110" r="45" fill="#FBBF24"/>
+      <circle cx="128" cy="110" r="38" fill="#FDE68A"/>
+      <!-- Cute face on bulb -->
+      <circle cx="115" cy="105" r="4" fill="#92400E"/>
+      <circle cx="141" cy="105" r="4" fill="#92400E"/>
+      <path d="M120 118 Q128 125 136 118" fill="none" stroke="#92400E" stroke-width="2.5" stroke-linecap="round"/>
+      <!-- Blush -->
+      <ellipse cx="108" cy="115" rx="6" ry="4" fill="#F59E0B" opacity="0.4"/>
+      <ellipse cx="148" cy="115" rx="6" ry="4" fill="#F59E0B" opacity="0.4"/>
+      <!-- Bulb base -->
+      <rect x="115" y="152" width="26" height="8" rx="3" fill="#D97706"/>
+      <rect x="118" y="160" width="20" height="6" rx="3" fill="#B45309"/>
+      <rect x="121" y="166" width="14" height="5" rx="3" fill="#92400E"/>
+      <!-- Light rays -->
+      <line x1="128" y1="50" x2="128" y2="60" stroke="#FBBF24" stroke-width="3" stroke-linecap="round"/>
+      <line x1="170" y1="68" x2="163" y2="75" stroke="#FBBF24" stroke-width="3" stroke-linecap="round"/>
+      <line x1="86" y1="68" x2="93" y2="75" stroke="#FBBF24" stroke-width="3" stroke-linecap="round"/>
+      <line x1="180" y1="110" x2="170" y2="110" stroke="#FBBF24" stroke-width="3" stroke-linecap="round"/>
+      <line x1="76" y1="110" x2="86" y2="110" stroke="#FBBF24" stroke-width="3" stroke-linecap="round"/>
+      <!-- Graduation cap -->
+      <polygon points="128,42 155,55 128,65 101,55" fill="#7C3AED"/>
+      <rect x="126" y="42" width="4" height="5" fill="#7C3AED"/>
+      <line x1="155" y1="55" x2="155" y2="70" stroke="#7C3AED" stroke-width="2"/>
+      <circle cx="155" cy="72" r="3" fill="#A855F7"/>
+      <!-- Sparkles -->
+      <text x="60" y="80" font-size="16" fill="#D946EF">✦</text>
+      <text x="185" y="145" font-size="14" fill="#E879F9">✦</text>
+    </svg>

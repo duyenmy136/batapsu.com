@@ -17,6 +17,7 @@ export default function Header() {
     const navLinks = [
         { href: '/', label: 'Trang chủ' },
         { href: '/blog', label: 'Bài viết' },
+        { href: '/series', label: 'Series' },
         { href: '/about', label: 'Về mình' },
     ];
 

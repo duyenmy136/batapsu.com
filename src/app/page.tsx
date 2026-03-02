@@ -1,12 +1,14 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import BlogCard from '@/components/BlogCard';
+import SeriesCard from '@/components/SeriesCard';
 import Newsletter from '@/components/Newsletter';
-import { getAllPosts, getAllCategories, getPostsByCategory } from '@/lib/posts';
+import { getAllPosts, getAllCategories, getPostsByCategory, getAllSeries } from '@/lib/posts';
 
 export default function HomePage() {
   const allPosts = getAllPosts();
   const categories = getAllCategories();
+  const allSeries = getAllSeries();
   const featuredPost = allPosts[0];
   const recentPosts = allPosts.slice(1, 7);
 
@@ -98,7 +100,9 @@ export default function HomePage() {
                 className="category-card"
                 style={{ '--cat-color': cat.color } as React.CSSProperties}
               >
-                <span className="category-card__icon">{cat.icon}</span>
+                <div className="category-card__icon" style={{ position: 'relative', width: '48px', height: '48px', margin: '0 0 var(--space-4) 0' }}>
+                  <Image src={cat.icon} alt={cat.name} fill style={{ objectFit: 'contain' }} />
+                </div>
                 <h3 className="category-card__name">{cat.name}</h3>
                 <p className="category-card__desc">{cat.description}</p>
                 <p className="category-card__count">{count} bài viết</p>
@@ -107,6 +111,31 @@ export default function HomePage() {
           })}
         </div>
       </section>
+
+      {/* Series */}
+      {allSeries.length > 0 && (
+        <section className="section container">
+          <div className="section__header">
+            <p className="section__label">Học có hệ thống</p>
+            <h2 className="section__title">🎯 Series nổi bật</h2>
+            <p className="section__subtitle">
+              Chuỗi bài viết theo lộ trình, giúp bạn ôn thi chứng chỉ IIBA và nâng cao kỹ năng BA
+            </p>
+          </div>
+
+          <div className="series-grid">
+            {allSeries.map((series) => (
+              <SeriesCard key={series.slug} series={series} />
+            ))}
+          </div>
+
+          <div style={{ textAlign: 'center', marginTop: 'var(--space-8)' }}>
+            <Link href="/series" className="btn btn--secondary">
+              Xem tất cả Series →
+            </Link>
+          </div>
+        </section>
+      )}
 
       {/* Featured & Recent Posts */}
       {allPosts.length > 0 && (

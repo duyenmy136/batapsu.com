@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://batapsu.com'),
   title: {
     default: "BA Tập Sự - Blog Kiến Thức Business Analysis",
     template: "%s | BA Tập Sự",
@@ -29,13 +30,14 @@ export const metadata: Metadata = {
     title: "BA Tập Sự - Blog Kiến Thức Business Analysis",
     description:
       "Blog chia sẻ kiến thức Business Analysis cho người mới bắt đầu.",
-    images: [{ url: "/logo.png", width: 512, height: 512, alt: "BA Tập Sự" }],
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "BA Tập Sự - Blog Kiến Thức Business Analysis" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "BA Tập Sự - Blog Kiến Thức Business Analysis",
     description:
       "Blog chia sẻ kiến thức Business Analysis cho người mới bắt đầu.",
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,
@@ -49,7 +51,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="vi">
+    <html lang="vi" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/logo.png" type="image/png" />
       </head>

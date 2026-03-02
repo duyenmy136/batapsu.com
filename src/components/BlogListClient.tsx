@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
+import Image from 'next/image';
 import BlogCard from '@/components/BlogCard';
 import { PostMeta } from '@/lib/posts';
 
@@ -11,6 +12,10 @@ interface BlogListClientProps {
 }
 
 const POSTS_PER_PAGE = 9;
+
+function isImagePath(icon: string): boolean {
+    return icon.startsWith('/') || icon.startsWith('http');
+}
 
 export default function BlogListClient({ posts, categories, initialCategory }: BlogListClientProps) {
     const [search, setSearch] = useState('');
@@ -69,7 +74,12 @@ export default function BlogListClient({ posts, categories, initialCategory }: B
                         className={`category-filter__btn ${activeCategory === cat.slug ? 'category-filter__btn--active' : ''}`}
                         onClick={() => { setActiveCategory(cat.slug); setPage(1); }}
                     >
-                        {cat.icon} {cat.name}
+                        {isImagePath(cat.icon) ? (
+                            <Image src={cat.icon} alt={cat.name} width={18} height={18} style={{ borderRadius: '4px' }} />
+                        ) : (
+                            <span>{cat.icon}</span>
+                        )}
+                        <span>{cat.name}</span>
                     </button>
                 ))}
             </div>

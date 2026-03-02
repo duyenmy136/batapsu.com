@@ -25,8 +25,9 @@ export default function Footer() {
                         <ul className="footer__links">
                             {categories.slice(0, 4).map((cat) => (
                                 <li key={cat.slug}>
-                                    <Link href={`/categories/${cat.slug}`}>
-                                        {cat.icon} {cat.name}
+                                    <Link href={`/categories/${cat.slug}`} className="footer__cat-link">
+                                        <Image src={cat.icon} alt={cat.name} width={20} height={20} className="footer__cat-icon" />
+                                        {cat.name}
                                     </Link>
                                 </li>
                             ))}
@@ -38,8 +39,9 @@ export default function Footer() {
                         <ul className="footer__links">
                             {categories.slice(4).map((cat) => (
                                 <li key={cat.slug}>
-                                    <Link href={`/categories/${cat.slug}`}>
-                                        {cat.icon} {cat.name}
+                                    <Link href={`/categories/${cat.slug}`} className="footer__cat-link">
+                                        <Image src={cat.icon} alt={cat.name} width={20} height={20} className="footer__cat-icon" />
+                                        {cat.name}
                                     </Link>
                                 </li>
                             ))}
@@ -50,13 +52,14 @@ export default function Footer() {
                         <h4 className="footer__col-title">Liên kết</h4>
                         <ul className="footer__links">
                             <li><Link href="/about">Về mình</Link></li>
+                            <li><Link href="/series">Series</Link></li>
                             <li><Link href="/blog">Tất cả bài viết</Link></li>
                         </ul>
                     </div>
                 </div>
 
                 <div className="footer__bottom">
-                    <p className="footer__copyright">
+                    <p className="footer__copyright" suppressHydrationWarning>
                         © {new Date().getFullYear()} BA Tập Sự. Made with 💜 by a girl in tech.
                     </p>
                     <div className="footer__social">
