@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { useTheme } from './ThemeProvider';
 
 interface MermaidProps {
     chart: string;
@@ -10,8 +9,6 @@ interface MermaidProps {
 export default function Mermaid({ chart }: MermaidProps) {
     const containerRef = useRef<HTMLDivElement>(null);
     const [svg, setSvg] = useState<string>('');
-    const { theme } = useTheme();
-
     useEffect(() => {
         const renderChart = async () => {
             try {
@@ -19,28 +16,16 @@ export default function Mermaid({ chart }: MermaidProps) {
 
                 mermaid.initialize({
                     startOnLoad: false,
-                    theme: theme === 'dark' ? 'dark' : 'default',
-                    themeVariables: theme === 'dark'
-                        ? {
-                            primaryColor: '#8B5CF6',
-                            primaryTextColor: '#F5F3FF',
-                            primaryBorderColor: '#6D28D9',
-                            lineColor: '#A78BFA',
-                            secondaryColor: '#1A1328',
-                            tertiaryColor: '#241C36',
-                            noteTextColor: '#F5F3FF',
-                            noteBkgColor: '#241C36',
-                            fontFamily: 'Be Vietnam Pro, sans-serif',
-                        }
-                        : {
-                            primaryColor: '#EDE9FE',
-                            primaryTextColor: '#4C1D95',
-                            primaryBorderColor: '#8B5CF6',
-                            lineColor: '#8B5CF6',
-                            secondaryColor: '#FCE7F3',
-                            tertiaryColor: '#F5F3FF',
-                            fontFamily: 'Be Vietnam Pro, sans-serif',
-                        },
+                    theme: 'default',
+                    themeVariables: {
+                        primaryColor: '#EDE9FE',
+                        primaryTextColor: '#4C1D95',
+                        primaryBorderColor: '#8B5CF6',
+                        lineColor: '#8B5CF6',
+                        secondaryColor: '#FCE7F3',
+                        tertiaryColor: '#F5F3FF',
+                        fontFamily: 'Be Vietnam Pro, sans-serif',
+                    },
                     flowchart: {
                         htmlLabels: true,
                         curve: 'basis',
@@ -57,7 +42,7 @@ export default function Mermaid({ chart }: MermaidProps) {
         };
 
         renderChart();
-    }, [chart, theme]);
+    }, [chart]);
 
     return (
         <div

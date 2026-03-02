@@ -3,10 +3,8 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useTheme } from './ThemeProvider';
 
 export default function Header() {
-    const { theme, toggleTheme } = useTheme();
     const [scrolled, setScrolled] = useState(false);
     const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -50,15 +48,6 @@ export default function Header() {
                     </nav>
 
                     <div className="header__actions">
-                        <button
-                            className="theme-toggle"
-                            onClick={toggleTheme}
-                            aria-label="Chuyển chế độ sáng/tối"
-                            title={theme === 'light' ? 'Chuyển sang chế độ tối' : 'Chuyển sang chế độ sáng'}
-                        >
-                            {theme === 'light' ? '🌙' : '☀️'}
-                        </button>
-
                         <button
                             className="mobile-menu-btn"
                             onClick={() => setMobileOpen(!mobileOpen)}
