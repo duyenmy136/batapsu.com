@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { getAllSlugs, getPostBySlug, getPostsByCategory, getCategoryBySlug } from '@/lib/posts';
 import { MDXRemote } from 'next-mdx-remote/rsc';
+import remarkGfm from 'remark-gfm';
 import BlogCard from '@/components/BlogCard';
 import { mdxComponents } from '@/lib/mdx-components';
 
@@ -85,7 +86,7 @@ export default async function BlogPostPage({ params }: Props) {
 
                 {/* Content */}
                 <div className="article__content">
-                    <MDXRemote source={post.content} components={mdxComponents} />
+                    <MDXRemote source={post.content} components={mdxComponents} options={{ mdxOptions: { remarkPlugins: [remarkGfm] } }} />
                 </div>
 
                 {/* Tags */}
