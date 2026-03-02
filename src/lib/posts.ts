@@ -135,37 +135,72 @@ export function getAllSlugs(): string[] {
 // Series
 // ============================================
 
+const seriesDirectory = path.join(process.cwd(), 'content/series');
+
+export interface SeriesWithContent extends SeriesMeta {
+    content: string;
+}
+
 export function getAllSeries(): SeriesMeta[] {
-    return [
-        {
-            name: 'Ôn thi ECBA',
-            slug: 'on-thi-ecba',
-            description: 'Lộ trình ôn thi Entry Certificate in Business Analysis (ECBA) — chứng chỉ đầu tiên của IIBA dành cho người mới bắt đầu nghề BA.',
-            icon: '🎓',
-            color: '#8B5CF6',
-            gradient: 'linear-gradient(135deg, #8B5CF6 0%, #A78BFA 50%, #C4B5FD 100%)',
-        },
-        {
-            name: 'Ôn thi CCBA',
-            slug: 'on-thi-ccba',
-            description: 'Lộ trình ôn thi Certification of Capability in Business Analysis (CCBA) — chứng chỉ trung cấp cho BA có 2-3 năm kinh nghiệm.',
-            icon: '🏅',
-            color: '#EC4899',
-            gradient: 'linear-gradient(135deg, #EC4899 0%, #F472B6 50%, #FBCFE8 100%)',
-        },
-        {
-            name: 'Ôn thi CBAP',
-            slug: 'on-thi-cbap',
-            description: 'Lộ trình ôn thi Certified Business Analysis Professional (CBAP) — chứng chỉ cao cấp nhất của IIBA cho Senior BA.',
-            icon: '👑',
-            color: '#F59E0B',
-            gradient: 'linear-gradient(135deg, #F59E0B 0%, #FBBF24 50%, #FDE68A 100%)',
-        },
-    ];
+    if (!fs.existsSync(seriesDirectory)) return [];
+
+    const fileNames = fs.readdirSync(seriesDirectory);
+    return fileNames
+        .filter((name) => name.endsWith('.mdx'))
+        .map((fileName) => {
+            const fullPath = path.join(seriesDirectory, fileName);
+            const fileContents = fs.readFileSync(fullPath, 'utf8');
+            const { data } = matter(fileContents);
+
+            return {
+                name: data.name || '',
+                slug: data.slug || fileName.replace(/\.mdx$/, ''),
+                description: data.description || '',
+                icon: data.icon || '📚',
+                color: data.color || '#8B5CF6',
+                gradient: data.gradient || `linear-gradient(135deg, ${data.color || '#8B5CF6'} 0%, ${data.color || '#8B5CF6'}80 100%)`,
+            } as SeriesMeta;
+        })
+        .sort((a, b) => {
+            // Sort by order field if available, read from file again
+            const aPath = path.join(seriesDirectory, `${a.slug}.mdx`);
+            const bPath = path.join(seriesDirectory, `${b.slug}.mdx`);
+            const aOrder = matter(fs.readFileSync(aPath, 'utf8')).data.order || 0;
+            const bOrder = matter(fs.readFileSync(bPath, 'utf8')).data.order || 0;
+            return aOrder - bOrder;
+        });
 }
 
 export function getSeriesBySlug(slug: string): SeriesMeta | null {
     return getAllSeries().find((s) => s.slug === slug) || null;
+}
+
+export function getSeriesWithContent(slug: string): SeriesWithContent | null {
+    try {
+        const fullPath = path.join(seriesDirectory, `${slug}.mdx`);
+        const fileContents = fs.readFileSync(fullPath, 'utf8');
+        const { data, content } = matter(fileContents);
+
+        return {
+            name: data.name || '',
+            slug: data.slug || slug,
+            description: data.description || '',
+            icon: data.icon || '📚',
+            color: data.color || '#8B5CF6',
+            gradient: data.gradient || `linear-gradient(135deg, ${data.color || '#8B5CF6'} 0%, ${data.color || '#8B5CF6'}80 100%)`,
+            content,
+        };
+    } catch {
+        return null;
+    }
+}
+
+export function getAllSeriesSlugs(): string[] {
+    if (!fs.existsSync(seriesDirectory)) return [];
+    return fs
+        .readdirSync(seriesDirectory)
+        .filter((name) => name.endsWith('.mdx'))
+        .map((name) => name.replace(/\.mdx$/, ''));
 }
 
 export function getPostsInSeries(seriesSlug: string): PostMeta[] {

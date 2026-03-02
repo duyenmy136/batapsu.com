@@ -1,21 +1,23 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { getAllSeries, getSeriesBySlug, getPostsInSeries } from '@/lib/posts';
+import { getAllSeriesSlugs, getSeriesWithContent, getPostsInSeries } from '@/lib/posts';
 import { getCategoryBySlug } from '@/lib/posts';
+import { MDXRemote } from 'next-mdx-remote/rsc';
+import remarkGfm from 'remark-gfm';
 
 interface Props {
     params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {
-    const series = getAllSeries();
-    return series.map((s) => ({ slug: s.slug }));
+    const slugs = getAllSeriesSlugs();
+    return slugs.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { slug } = await params;
-    const series = getSeriesBySlug(slug);
+    const series = getSeriesWithContent(slug);
     if (!series) return { title: 'Series không tồn tại' };
 
     return {
@@ -35,7 +37,7 @@ function formatDate(dateStr: string): string {
 
 export default async function SeriesDetailPage({ params }: Props) {
     const { slug } = await params;
-    const series = getSeriesBySlug(slug);
+    const series = getSeriesWithContent(slug);
     const posts = getPostsInSeries(slug);
 
     if (!series) {
@@ -71,7 +73,26 @@ export default async function SeriesDetailPage({ params }: Props) {
                 </div>
             </section>
 
+            {/* Series MDX Content */}
             <section className="section container">
+                <div className="article__body" style={{ maxWidth: '800px', margin: '0 auto' }}>
+                    <MDXRemote
+                        source={series.content}
+                        options={{
+                            mdxOptions: {
+                                remarkPlugins: [remarkGfm],
+                            },
+                        }}
+                    />
+                </div>
+            </section>
+
+            {/* Posts in Series */}
+            <section className="section container">
+                <div className="section__header">
+                    <h2 className="section__title">📖 Bài viết trong series</h2>
+                </div>
+
                 {posts.length > 0 ? (
                     <div className="series-posts">
                         {posts.map((post, index) => {
