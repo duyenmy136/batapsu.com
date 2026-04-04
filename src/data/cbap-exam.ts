@@ -5,6 +5,7 @@ const cbapExamConfig: ExamConfig = {
   certName: 'CBAP',
   totalTimeMinutes: 88,
   passingScore: 70,
+  questionsPerExam: 50,
   kaLabels: {
     planning: 'BA Planning & Monitoring',
     elicitation: 'Elicitation & Collaboration',
@@ -13,7 +14,15 @@ const cbapExamConfig: ExamConfig = {
     radd: 'RADD',
     se: 'Solution Evaluation',
   },
-  questions: [
+  kaDistribution: {
+    planning: 7,
+    elicitation: 6,
+    rlm: 7,
+    strategy: 8,
+    radd: 15,
+    se: 7,
+  },
+  questionPool: [
     // ═══ BA Planning & Monitoring — 14% → 7 câu ═══
     {
       id: 1, ka: 'planning',
@@ -628,4 +637,4 @@ const cbapExamConfig: ExamConfig = {
   ],
 };
 
-export default cbapExamConfig;
+export default cbapExamConfig as ExamConfig;
