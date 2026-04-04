@@ -1,7 +1,7 @@
 ---
 name: "Ôn thi CCBA"
 slug: "on-thi-ccba"
-description: "Lộ trình ôn thi Certification of Capability in Business Analysis (CCBA) — chứng chỉ trung cấp cho BA có 2-3 năm kinh nghiệm."
+description: "Lộ trình ôn thi Certification of Capability in Business Analysis (CCBA) — chứng chỉ trung cấp cho BA có 2-3 năm kinh nghiệm. Bao gồm 12 bài học chuyên sâu về 6 Knowledge Areas trong BABOK Guide v3."
 icon: "🏅"
 color: "#EC4899"
 gradient: "linear-gradient(135deg, #EC4899 0%, #F472B6 50%, #FBCFE8 100%)"
@@ -10,40 +10,90 @@ order: 2
 
 ## CCBA là gì?
 
-**Certification of Capability in Business Analysis (CCBA)** là chứng chỉ cấp trung của IIBA, dành cho những BA đã có kinh nghiệm thực tế và muốn chứng minh năng lực chuyên môn của mình.
+**Certification of Capability in Business Analysis (CCBA)** là chứng chỉ cấp trung của IIBA (International Institute of Business Analysis), dành cho những BA đã có kinh nghiệm thực tế và muốn chứng minh năng lực chuyên môn ở mức ứng dụng. CCBA cho thấy bạn có khả năng **áp dụng kiến thức BA** vào các dự án thực tế một cách hiệu quả.
 
 ## Ai nên thi CCBA?
 
 - 💼 BA có 2-3 năm kinh nghiệm làm việc thực tế
 - 📈 Muốn nâng level từ Junior lên Mid-level BA
 - 🎯 Đã thi ECBA và muốn tiến xa hơn
-- 🏢 Cần chứng chỉ để apply vị trí cao hơn
+- 🏢 Cần chứng chỉ quốc tế để nâng cao cơ hội nghề nghiệp
+- 🔄 Product Manager, QA, PM muốn chuyển sang hoặc mở rộng sang BA
 
 ## Yêu cầu thi
 
 | Tiêu chí | Yêu cầu |
 |----------|---------|
 | Kinh nghiệm | Tối thiểu 3,750 giờ BA work (trong 7 năm gần nhất) |
-| Đào tạo | Tối thiểu 21 giờ Professional Development |
+| Phân bổ KA | 900 giờ/KA × 2 KAs hoặc 500 giờ/KA × 4 KAs |
+| Đào tạo | Tối thiểu 21 giờ Professional Development (trong 4 năm) |
 | Phí thi | ~$250 (thành viên IIBA) / ~$450 (không thành viên) |
-| Hình thức | Thi online, trắc nghiệm |
-| Số câu hỏi | 130 câu |
+| Hình thức | Thi online hoặc tại trung tâm PSI, trắc nghiệm |
+| Số câu hỏi | 130 câu scenario-based |
 | Thời gian | 3 giờ |
+| Tham khảo | Cung cấp references |
 
-## So sánh ECBA vs CCBA
+## Exam Blueprint — Tỷ trọng các Knowledge Area
 
-| | ECBA | CCBA |
-|---|------|------|
-| Cấp độ | Entry | Intermediate |
-| Kinh nghiệm | Không yêu cầu | 3,750 giờ |
-| Độ khó | ⭐⭐ | ⭐⭐⭐⭐ |
-| Câu hỏi | 50 câu / 1h | 130 câu / 3h |
-| Phạm vi | Kiến thức cơ bản | Ứng dụng thực tế |
+```mermaid
+pie title CCBA Exam Blueprint
+    "RADD (32%)" : 32
+    "Elicitation & Collaboration (20%)" : 20
+    "Requirements Lifecycle (18%)" : 18
+    "BA Planning & Monitoring (12%)" : 12
+    "Strategy Analysis (12%)" : 12
+    "Solution Evaluation (6%)" : 6
+```
+
+| Knowledge Area | Tỷ trọng | Mô tả |
+|---------------|:--------:|-------|
+| Requirements Analysis & Design Definition | 32% | Phân tích yêu cầu, mô hình hóa, thiết kế giải pháp |
+| Elicitation & Collaboration | 20% | Thu thập yêu cầu, phối hợp stakeholder |
+| Requirements Life Cycle Management | 18% | Quản lý vòng đời yêu cầu, traceability |
+| BA Planning & Monitoring | 12% | Lập kế hoạch và giám sát hoạt động BA |
+| Strategy Analysis | 12% | Phân tích chiến lược, current/future state |
+| Solution Evaluation | 6% | Đánh giá giải pháp |
+
+## So sánh ECBA vs CCBA vs CBAP
+
+| | ECBA | CCBA | CBAP |
+|---|------|------|------|
+| Cấp độ | Entry | Intermediate | Advanced |
+| Kinh nghiệm | Không yêu cầu | 3,750 giờ | 7,500 giờ |
+| Độ khó | ⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| Câu hỏi | 50 câu / 1h | 130 câu / 3h | 120 câu / 3.5h |
+| Phạm vi | Kiến thức cơ bản | Ứng dụng thực tế | Phân tích & tổng hợp |
+| Dạng câu hỏi | Knowledge-based | Scenario-based | Case study & Scenario |
+
+## Lộ trình 12 bài học
+
+```mermaid
+graph TD
+    B1["📖 Bài 1: Tổng quan CCBA"] --> B2["📚 Bài 2: BABOK Guide v3"]
+    B2 --> B3["📋 Bài 3: BA Planning & Monitoring"]
+    B2 --> B4["🔍 Bài 4: Elicitation - P1"]
+    B4 --> B5["🤝 Bài 5: Elicitation - P2"]
+    B2 --> B6["🔄 Bài 6: Requirements Lifecycle"]
+    B2 --> B7["🎯 Bài 7: Strategy Analysis"]
+    B2 --> B8["📊 Bài 8: RADD - P1"]
+    B8 --> B9["🏗️ Bài 9: RADD - P2"]
+    B2 --> B10["✅ Bài 10: Solution Evaluation"]
+    B3 & B5 & B6 & B7 & B9 & B10 --> B11["🛠️ Bài 11: 50 Kỹ thuật BA"]
+    B11 --> B12["🏆 Bài 12: Chiến lược thi"]
+
+    style B1 fill:#FCE7F3,stroke:#EC4899,color:#333
+    style B2 fill:#FCE7F3,stroke:#EC4899,color:#333
+    style B8 fill:#FDF2F8,stroke:#DB2777,color:#333,stroke-width:3px
+    style B9 fill:#FDF2F8,stroke:#DB2777,color:#333,stroke-width:3px
+    style B12 fill:#EC4899,stroke:#BE185D,color:#fff,stroke-width:3px
+```
 
 ## Series này sẽ giúp bạn
 
-✅ Ôn tập chuyên sâu 6 Knowledge Areas  
+✅ Ôn tập chuyên sâu 6 Knowledge Areas theo đúng tỷ trọng đề thi  
+✅ Nắm vững 50 kỹ thuật BA trong BABOK Guide v3  
 ✅ Luyện kỹ năng phân tích tình huống (scenario-based questions)  
-✅ Chia sẻ kinh nghiệm thi thực tế  
-✅ Tips quản lý thời gian khi làm bài  
+✅ Hiểu rõ Input → Task → Output → Techniques của từng Knowledge Area  
+✅ Chiến lược quản lý thời gian khi làm 130 câu trong 3 giờ  
+✅ Chia sẻ kinh nghiệm thi thực tế từ người đã đỗ  
 ✅ Chinh phục CCBA một cách tự tin! 🏆

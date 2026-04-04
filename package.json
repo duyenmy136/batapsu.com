@@ -9,6 +9,8 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@firebase/vertexai": "^1.2.4",
+    "firebase": "^12.11.0",
     "gray-matter": "^4.0.3",
     "mermaid": "^11.12.3",
     "next": "16.1.6",

@@ -5,6 +5,7 @@ import { getAllSeriesSlugs, getSeriesWithContent, getPostsInSeries } from '@/lib
 import { getCategoryBySlug } from '@/lib/posts';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import remarkGfm from 'remark-gfm';
+import { mdxComponents } from '@/lib/mdx-components';
 
 interface Props {
     params: Promise<{ slug: string }>;
@@ -78,6 +79,7 @@ export default async function SeriesDetailPage({ params }: Props) {
                 <div className="article__body" style={{ maxWidth: '800px', margin: '0 auto' }}>
                     <MDXRemote
                         source={series.content}
+                        components={mdxComponents}
                         options={{
                             mdxOptions: {
                                 remarkPlugins: [remarkGfm],

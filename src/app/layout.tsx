@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { AuthProvider } from "@/components/AuthProvider";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://batapsu.com'),
@@ -56,9 +57,11 @@ export default function RootLayout({
         <link rel="icon" href="/logo.png" type="image/png" />
       </head>
       <body>
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <AuthProvider>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </AuthProvider>
       </body>
     </html>
   );

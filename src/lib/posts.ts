@@ -33,16 +33,55 @@ export interface Post extends PostMeta {
     content: string;
 }
 
+// Build a map of slug -> absolute file path, scanning subdirectories
+function buildSlugMap(): Map<string, string> {
+    const map = new Map<string, string>();
+    if (!fs.existsSync(postsDirectory)) return map;
+
+    function scan(dir: string) {
+        const entries = fs.readdirSync(dir, { withFileTypes: true });
+        for (const entry of entries) {
+            const fullPath = path.join(dir, entry.name);
+            if (entry.isDirectory()) {
+                scan(fullPath);
+            } else if (entry.name.endsWith('.mdx')) {
+                // Strip numbered prefix: "01-ccba-xxx.mdx" -> "ccba-xxx"
+                const slug = entry.name.replace(/\.mdx$/, '').replace(/^\d+-/, '');
+                map.set(slug, fullPath);
+            }
+        }
+    }
+
+    scan(postsDirectory);
+    return map;
+}
+
+let _slugMap: Map<string, string> | null = null;
+function getSlugMap(): Map<string, string> {
+    if (!_slugMap) _slugMap = buildSlugMap();
+    return _slugMap;
+}
+
+// Invalidate cache (useful in dev)
+export function invalidatePostCache() {
+    _slugMap = null;
+}
+
+function resolvePostPath(slug: string): string | null {
+    // Try direct path first (root-level posts)
+    const directPath = path.join(postsDirectory, `${slug}.mdx`);
+    if (fs.existsSync(directPath)) return directPath;
+    // Try slug map (subdirectory posts with numbered prefixes)
+    return getSlugMap().get(slug) || null;
+}
+
 export function getAllPosts(): PostMeta[] {
     if (!fs.existsSync(postsDirectory)) return [];
 
-    const fileNames = fs.readdirSync(postsDirectory);
-    const posts = fileNames
-        .filter((name) => name.endsWith('.mdx'))
-        .map((fileName) => {
-            const slug = fileName.replace(/\.mdx$/, '');
-            return getPostMeta(slug);
-        })
+    const slugMap = buildSlugMap();
+    _slugMap = slugMap; // refresh cache
+    const posts = Array.from(slugMap.keys())
+        .map((slug) => getPostMeta(slug))
         .filter((post): post is PostMeta => post !== null)
         .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
@@ -51,7 +90,8 @@ export function getAllPosts(): PostMeta[] {
 
 export function getPostMeta(slug: string): PostMeta | null {
     try {
-        const fullPath = path.join(postsDirectory, `${slug}.mdx`);
+        const fullPath = resolvePostPath(slug);
+        if (!fullPath) return null;
         const fileContents = fs.readFileSync(fullPath, 'utf8');
         const { data, content } = matter(fileContents);
         const stats = readingTime(content);
@@ -77,7 +117,8 @@ export function getPostMeta(slug: string): PostMeta | null {
 
 export function getPostBySlug(slug: string): Post | null {
     try {
-        const fullPath = path.join(postsDirectory, `${slug}.mdx`);
+        const fullPath = resolvePostPath(slug);
+        if (!fullPath) return null;
         const fileContents = fs.readFileSync(fullPath, 'utf8');
         const { data, content } = matter(fileContents);
         const stats = readingTime(content);
@@ -125,10 +166,7 @@ export function getCategoryBySlug(slug: string) {
 
 export function getAllSlugs(): string[] {
     if (!fs.existsSync(postsDirectory)) return [];
-    return fs
-        .readdirSync(postsDirectory)
-        .filter((name) => name.endsWith('.mdx'))
-        .map((name) => name.replace(/\.mdx$/, ''));
+    return Array.from(buildSlugMap().keys());
 }
 
 // ============================================

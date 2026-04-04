@@ -18,6 +18,7 @@ export default function Header() {
         { href: '/', label: 'Trang chủ' },
         { href: '/blog', label: 'Bài viết' },
         { href: '/series', label: 'Series' },
+        { href: '/thi-thu', label: 'Thi thử' },
         { href: '/about', label: 'Về mình' },
     ];
 

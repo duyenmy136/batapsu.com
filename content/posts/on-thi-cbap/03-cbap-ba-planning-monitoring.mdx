@@ -1,0 +1,428 @@
+---
+title: "BA Planning & Monitoring nâng cao — Quản trị hoạt động BA"
+date: "2026-04-15"
+category: "Chứng chỉ BA"
+categorySlug: "chung-chi-ba"
+excerpt: "BAPM cho CBAP: Lập kế hoạch BA approach ở enterprise level, stakeholder engagement strategy, governance framework, và performance improvement cycle."
+thumbnail: "cbap-ba-planning-monitoring.png"
+tags: ["CBAP", "BAPM", "planning", "monitoring", "governance"]
+author: "BA Tập Sự"
+series: "on-thi-cbap"
+seriesOrder: 3
+---
+
+## BA Planning & Monitoring — CBAP Level (14%)
+
+Ở level CBAP, BAPM không chỉ là **lập kế hoạch** mà còn là **quản trị chiến lược** hoạt động BA — từ việc chọn approach phù hợp đến tối ưu hóa hiệu suất BA liên tục.
+
+### 5 Tasks trong BAPM
+
+```mermaid
+graph TB
+    T1["📋 Plan BA Approach\nChọn predictive, adaptive, hay hybrid"]
+    T2["👥 Plan Stakeholder Engagement\nXác định & quản lý stakeholder"]
+    T3["⚖️ Plan BA Governance\nThiết lập quy trình quản trị"]
+    T4["📁 Plan BA Information Management\nQuản lý thông tin & artifacts"]
+    T5["📈 Identify BA Performance Improvements\nCải thiện hiệu suất BA"]
+
+    T1 --> T2
+    T1 --> T3
+    T1 --> T4
+    T2 --> T5
+    T3 --> T5
+    T4 --> T5
+
+    style T1 fill:#DBEAFE,stroke:#3B82F6,color:#333,stroke-width:2px
+    style T5 fill:#D1FAE5,stroke:#10B981,color:#333,stroke-width:2px
+```
+
+## Task 1: Plan BA Approach
+
+### Chọn BA Approach
+
+```mermaid
+graph TD
+    START["❓ Chọn BA Approach"]
+
+    START --> Q1{"Requirements\nrõ ràng?"}
+    Q1 -->|Yes| Q2{"Scope\nổn định?"}
+    Q1 -->|No| ADAPTIVE["🔄 Adaptive\n(Agile)"]
+
+    Q2 -->|Yes| PREDICTIVE["📋 Predictive\n(Waterfall)"]
+    Q2 -->|No| Q3{"Có thể\niterate?"}
+
+    Q3 -->|Yes| ADAPTIVE
+    Q3 -->|No| HYBRID["⚡ Hybrid\nMix approach"]
+
+    style PREDICTIVE fill:#DBEAFE,stroke:#3B82F6,color:#333
+    style ADAPTIVE fill:#D1FAE5,stroke:#10B981,color:#333
+    style HYBRID fill:#FEF3C7,stroke:#F59E0B,color:#333
+```
+
+### CBAP-level: Enterprise BA Approach
+
+| Factor | Predictive | Adaptive | CBAP Consideration |
+|--------|----------|---------|-------------------|
+| **Scope** | Fixed, well-defined | Evolving | Enterprise scope → often hybrid |
+| **Stakeholders** | Limited, identified | Dynamic, emerging | More stakeholders = more engagement planning |
+| **Timeline** | Fixed deadlines | Flexible iterations | Regulatory deadlines → predictive milestones |
+| **Risk** | Low uncertainty | High uncertainty | Enterprise risk → governance focus |
+| **Deliverables** | Formal documents | Working software + stories | Enterprise needs traceability → formal + agile |
+| **BA Team** | Individual BA | BA embedded in team | Enterprise → BA CoE (Center of Excellence) |
+
+<Callout type="info" title="CBAP-level thinking">
+Ở level CBAP, câu hỏi không chỉ "chọn approach nào" mà là **"tại sao approach này phù hợp với enterprise context"** và **"trade-offs là gì"**.
+</Callout>
+
+### BA Deliverables Planning
+
+| Approach | Key Deliverables |
+|---------|-----------------|
+| **Predictive** | BRD, SRS, RTM, Use Case Specs, Test Cases |
+| **Adaptive** | User Stories, Acceptance Criteria, Product Backlog, Story Maps |
+| **Hybrid** | Vision Document + User Stories, Formal RTM + Agile Backlog |
+
+## Task 2: Plan Stakeholder Engagement
+
+### Stakeholder Analysis Matrix — CBAP Level
+
+```mermaid
+quadrantChart
+    title Stakeholder Influence-Interest Grid
+    x-axis Low Interest --> High Interest
+    y-axis Low Influence --> High Influence
+
+    quadrant-1 Manage Closely
+    quadrant-2 Keep Satisfied
+    quadrant-3 Monitor
+    quadrant-4 Keep Informed
+
+    CEO: [0.4, 0.9]
+    Sponsor: [0.8, 0.85]
+    End Users: [0.7, 0.3]
+    IT Team: [0.6, 0.5]
+    Regulators: [0.3, 0.7]
+    Vendors: [0.2, 0.2]
+```
+
+### RACI Matrix
+
+| Activity | Sponsor | BA | PM | Dev Team | Users |
+|---------|---------|----|----|---------|-------|
+| Define Business Objectives | **A** | R | C | I | C |
+| Elicit Requirements | C | **A/R** | C | C | **R** |
+| Prioritize Requirements | **A** | R | C | C | R |
+| Validate Solution | C | **R** | C | R | **A** |
+| Approve Requirements | **A** | R | I | I | C |
+
+- **R** = Responsible, **A** = Accountable, **C** = Consulted, **I** = Informed
+
+### Stakeholder Engagement Strategies
+
+```mermaid
+graph TB
+    subgraph HIGH_HIGH["🎯 High Power + High Interest"]
+        HH1["Active partnership"]
+        HH2["Regular 1:1 meetings"]
+        HH3["Co-creation workshops"]
+    end
+
+    subgraph HIGH_LOW["⚡ High Power + Low Interest"]
+        HL1["Concise executive reports"]
+        HL2["Escalation path setup"]
+        HL3["Periodic status updates"]
+    end
+
+    subgraph LOW_HIGH["👀 Low Power + High Interest"]
+        LH1["Regular communication"]
+        LH2["Feedback channels"]
+        LH3["Training sessions"]
+    end
+
+    subgraph LOW_LOW["📋 Low Power + Low Interest"]
+        LL1["Standard notifications"]
+        LL2["Newsletter/email updates"]
+    end
+
+    style HIGH_HIGH fill:#DBEAFE,stroke:#3B82F6,color:#333
+    style HIGH_LOW fill:#FEF3C7,stroke:#F59E0B,color:#333
+    style LOW_HIGH fill:#D1FAE5,stroke:#10B981,color:#333
+    style LOW_LOW fill:#F3F4F6,stroke:#9CA3AF,color:#333
+```
+
+<Callout type="tip" title="CBAP exam tip: Stakeholder conflict">
+Câu hỏi CBAP thường đặt BA vào tình huống **stakeholder conflict phức tạp** — nhiều stakeholder cùng ảnh hưởng cao nhưng mâu thuẫn. Đáp án đúng thường là **facilitate negotiation** hoặc **escalate to governance body**, KHÔNG BAO GIỜ là "BA quyết định".
+</Callout>
+
+## Task 3: Plan BA Governance
+
+### Governance Framework
+
+```mermaid
+graph TD
+    GOV["⚖️ BA Governance\nFramework"]
+
+    GOV --> DECISION["🏛️ Decision Making\nAi quyết định gì?"]
+    GOV --> CHANGE["🔄 Change Process\nQuy trình thay đổi?"]
+    GOV --> APPROVAL["✅ Approval Process\nQuy trình phê duyệt?"]
+    GOV --> ESCALATION["📢 Escalation Path\nLeo thang khi nào?"]
+
+    DECISION --> CCB["📋 Change Control Board\nthẩm quyền change requests"]
+    CHANGE --> CR["📝 Change Request Process\nsubmit → assess → approve/reject"]
+    APPROVAL --> THRESH["📊 Approval Thresholds\ntheo impact level"]
+    ESCALATION --> LEVELS["🏗️ Escalation Levels\nBA → PM → Sponsor → Steering"]
+
+    style GOV fill:#F59E0B,stroke:#D97706,color:#000,stroke-width:3px
+```
+
+### Decision Rights Matrix
+
+| Decision Type | Authority | BA Role |
+|-------------|----------|---------|
+| Business priority | Sponsor/Executive | Facilitate, recommend |
+| Requirements content | Subject Matter Expert | Elicit, analyze, document |
+| Requirements approval | Business Owner | Present, facilitate review |
+| Design decisions | Solution Architect | Provide requirements context |
+| Change requests (Low) | BA + PM | Assess impact, approve |
+| Change requests (High) | CCB/Steering Committee | Prepare assessment, present |
+
+## Task 4: Plan BA Information Management
+
+### Information Architecture
+
+```mermaid
+graph LR
+    subgraph Sources["📥 Information Sources"]
+        S1["Elicitation results"]
+        S2["Documents & artifacts"]
+        S3["Models & diagrams"]
+        S4["Decisions & approvals"]
+    end
+
+    subgraph Storage["📁 Storage & Organization"]
+        ST1["Requirements repo"]
+        ST2["Version control"]
+        ST3["Traceability matrix"]
+    end
+
+    subgraph Access["🔐 Access & Security"]
+        A1["Role-based access"]
+        A2["Audit trail"]
+        A3["Retention policy"]
+    end
+
+    Sources --> Storage --> Access
+```
+
+### Requirements Repository Structure
+
+| Repository Element | Purpose | CBAP Consideration |
+|-------------------|---------|-------------------|
+| **Requirements Baseline** | Approved set of requirements | Enterprise may have multiple baselines |
+| **Version History** | Track changes over time | Regulatory compliance → mandatory |
+| **Traceability Matrix** | Link requirements to business goals | End-to-end traceability required |
+| **Requirements Attributes** | Metadata (priority, status, author) | Standardized across enterprise |
+| **Glossary** | Business terminology definitions | Enterprise-wide consistency |
+
+## Task 5: Identify BA Performance Improvements
+
+### Performance Metrics for BA
+
+```mermaid
+graph TD
+    PERF["📈 BA Performance"]
+
+    PERF --> PROC["⚙️ Process Metrics"]
+    PERF --> QUAL["✅ Quality Metrics"]
+    PERF --> STKHLD["👥 Stakeholder Metrics"]
+
+    PROC --> P1["Cycle time per requirement"]
+    PROC --> P2["Rework rate"]
+    PROC --> P3["Requirements churn"]
+
+    QUAL --> Q1["Defects from requirements"]
+    QUAL --> Q2["Requirements coverage"]
+    QUAL --> Q3["Traceability completeness"]
+
+    STKHLD --> S1["Stakeholder satisfaction"]
+    STKHLD --> S2["Approval cycle time"]
+    STKHLD --> S3["Change request volume"]
+
+    style PERF fill:#F59E0B,stroke:#D97706,color:#000,stroke-width:2px
+```
+
+### Continuous Improvement Cycle
+
+```mermaid
+graph LR
+    MEASURE["📊 Measure\nCollect metrics"]
+    ANALYZE["🔍 Analyze\nIdentify patterns"]
+    IMPROVE["🔧 Improve\nImplement changes"]
+    VALIDATE["✅ Validate\nVerify improvement"]
+
+    MEASURE --> ANALYZE --> IMPROVE --> VALIDATE --> MEASURE
+
+    style MEASURE fill:#DBEAFE,stroke:#3B82F6,color:#333
+    style ANALYZE fill:#D1FAE5,stroke:#10B981,color:#333
+    style IMPROVE fill:#FEF3C7,stroke:#F59E0B,color:#333
+    style VALIDATE fill:#E9D5FF,stroke:#8B5CF6,color:#333
+```
+
+### Enterprise-level Improvements
+
+| Area | Current State Example | Improvement |
+|-----|---------------------|-------------|
+| **Process** | Ad-hoc requirements gathering | Standardized elicitation templates |
+| **Tools** | Scattered documents in email | Centralized requirements management tool |
+| **Skills** | Individual BA expertise varies | BA CoE with training program |
+| **Communication** | Status updates via email | Automated dashboards |
+| **Governance** | No change control | Formal CCB with defined thresholds |
+
+## Câu hỏi CBAP thường gặp về BAPM
+
+### Câu hỏi mẫu 1
+> BA đang work trong enterprise với 4 ongoing projects, mỗi project dùng different approach. BA nên:
+>
+> A. Standardize tất cả về 1 approach  
+> B. **Tailor BA approach cho mỗi project based on context** ✅  
+> C. Dùng project lớn nhất làm chuẩn  
+> D. Để PM quyết định approach
+
+### Câu hỏi mẫu 2
+> Requirements process cho enterprise có nhiều defects. BA nên:
+>
+> A. Training team ngay  
+> B. **Analyze root cause trước, sau đó propose improvements** ✅  
+> C. Thay đổi tool  
+> D. Thuê thêm BA
+
+### Câu hỏi mẫu 3
+> Stakeholder mới join project muộn, yêu cầu thay đổi nhiều requirements. BA nên:
+>
+> A. Reject tất cả changes  
+> B. Accept tất cả vì stakeholder mới có perspective mới  
+> C. **Assess impact, discuss with governance body** ✅  
+> D. Delay project để incorporate changes
+
+<Callout type="success" title="Key takeaway">
+BAPM ở CBAP level = **Enterprise BA governance** + **Continuous improvement** + **Strategic stakeholder management**. Luôn nghĩ ở góc độ "enterprise level", không chỉ "project level".
+</Callout>
+
+## 📝 Tóm tắt kiến thức nổi bật
+
+<Callout type="success" title="Key Takeaways — Bài 3">
+- BAPM ở CBAP chiếm **14%** (vs 12% ở CCBA) — yêu cầu tư duy **enterprise-level planning**
+- **Enterprise BA Approach**: Không chỉ plan cho 1 dự án mà cho toàn bộ BA capability của tổ chức
+- **Stakeholder Analysis Matrix + RACI**: ở CBAP phải xử lý stakeholder phức tạp — cross-functional, multi-level, external
+- **Governance Framework**: Decision authority, escalation matrix, change control board, approval workflows
+- **Performance Improvement Cycle**: Measure → Analyze → Improve → Monitor → Repeat
+- BA Performance được đo qua: Requirements Quality, Stakeholder Satisfaction, Rework Rate, Cycle Time
+</Callout>
+
+---
+
+## 📋 Bài kiểm tra trắc nghiệm — Bài 3
+
+<Callout type="info" title="Hướng dẫn làm bài">
+Làm **10 câu** bên dưới trong **17 phút**. Đáp án ở cuối bài.
+</Callout>
+
+**Câu 1.** Enterprise BA Manager nhận thấy các project BAs dùng inconsistent requirements templates. BA Manager nên:
+
+- A. Bỏ qua — mỗi dự án khác nhau
+- B. Standardize templates và establish BA methodology across enterprise
+- C. Chỉ đạo BAs copy template tốt nhất
+- D. Thuê consultant thay đổi
+
+**Câu 2.** Stakeholder A (VP) và Stakeholder B (Director) có conflicting requirements. Governance framework nên chỉ ra:
+
+- A. VP luôn đúng vì cấp cao hơn
+- B. Decision authority matrix xác định ai có quyền quyết định cho scope này
+- C. BA tự quyết định
+- D. Escalate lên CEO mọi conflicts
+
+**Câu 3.** BA performance metric "Cycle Time from requirement stated to approved" đang tăng. Root cause có thể nhất là:
+
+- A. Requirements quá phức tạp
+- B. Approval process có bottleneck hoặc stakeholder unavailability
+- C. BA team thiếu người
+- D. Tools không tốt
+
+**Câu 4.** Cross-functional project cần input từ Finance, IT, Operations, Legal. Engagement strategy phù hợp nhất:
+
+- A. Họp riêng từng department
+- B. Stakeholder mapping + tailored engagement plan per group + cross-functional workshops
+- C. Gửi survey cho tất cả
+- D. Chỉ làm việc với IT vì là technology project
+
+**Câu 5.** Khi nào BA nên sử dụng Adaptive approach thay vì Predictive?
+
+- A. Khi regulatory requirements nghiêm ngặt
+- B. Khi requirements volatile, feedback sớm critical, và stakeholders available
+- C. Khi budget cố định
+- D. Khi team chưa có kinh nghiệm Agile
+
+**Câu 6.** BA Governance Board reject một change request. BA nên:
+
+- A. Implement anyway vì stakeholder muốn
+- B. Document decision, communicate rationale to stakeholders, archive request
+- C. Escalate lên higher management
+- D. Resubmit cùng request
+
+**Câu 7.** Enterprise BA Center of Excellence (CoE) có vai trò:
+
+- A. Thay thế project BAs
+- B. Standardize practices, mentoring, tool governance, knowledge sharing across organization
+- C. Chỉ quản lý budget
+- D. Chỉ recruitment
+
+**Câu 8.** BA đo stakeholder satisfaction = 3.2/5 (target 4.0). Improvement action phù hợp nhất:
+
+- A. Thay đổi stakeholders
+- B. Analyze dissatisfaction themes, adjust communication approach, increase transparency
+- C. Gửi fewer reports
+- D. Ignore — 3.2 cũng OK
+
+**Câu 9.** Information Management ở enterprise level cần bao gồm:
+
+- A. Chỉ document storage
+- B. Storage, access control, versioning, retention policy, traceability, cross-project reuse
+- C. Chỉ naming conventions
+- D. Chỉ tools selection
+
+**Câu 10.** Plan BA Approach cho enterprise transformation (3-year program) nên:
+
+- A. Cố định approach từ đầu, không thay đổi
+- B. Adaptive approach cho toàn bộ 3 năm
+- C. Phase-based approach: may use different approaches per phase based on maturity and needs
+- D. Không cần approach — quá dài để plan
+
+---
+
+### 🔑 Đáp án & Giải thích
+
+| Câu | Đáp án | Giải thích |
+|:---:|:------:|-----------|
+| 1 | **B** | Enterprise BA Manager → standardize across org = governance responsibility. |
+| 2 | **B** | Governance = decision authority matrix → who decides for what scope. Không phải seniority wins. |
+| 3 | **B** | Cycle time increase → process bottleneck (approval queue, stakeholder unavailability). |
+| 4 | **B** | Cross-functional → map stakeholders, tailor engagement, use cross-functional workshops for alignment. |
+| 5 | **B** | Adaptive when: volatile requirements, need early feedback, stakeholders engaged and available. |
+| 6 | **B** | Rejected CR → document decision rationale, communicate transparently, archive for future reference. |
+| 7 | **B** | CoE = center to standardize, mentor, govern tools, share knowledge — not replace BAs. |
+| 8 | **B** | Analyze root cause of dissatisfaction → adjust approach → improve experience. |
+| 9 | **B** | Enterprise IM = comprehensive: storage, access, versioning, retention, traceability, cross-project reuse. |
+| 10 | **C** | Long program → phase-based, adapt approach per phase maturity. Not one-size-fits-all. |
+
+### 📊 Thang đánh giá
+
+| Số câu đúng | Đánh giá | Hành động |
+|:-----------:|---------|-----------|
+| 9-10 | ⭐ Xuất sắc | BAPM nâng cao nắm vững! |
+| 7-8 | ✅ Tốt | Ôn lại Enterprise governance và CoE |
+| 5-6 | ⚠️ Trung bình | Đọc lại Stakeholder Analysis ở enterprise level |
+| < 5 | ❌ Cần ôn lại | BAPM 14% — focus vào enterprise-level thinking |
+
+---
+
+*Tiếp theo: Elicitation & Collaboration nâng cao 👉*

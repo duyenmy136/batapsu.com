@@ -1,0 +1,420 @@
+---
+title: "Strategy Analysis nâng cao — Phần 1: Current State & Future State"
+date: "2026-04-18"
+category: "Chứng chỉ BA"
+categorySlug: "chung-chi-ba"
+excerpt: "Strategy Analysis cho CBAP (Phần 1): Phân tích Current State toàn diện, định nghĩa Future State chiến lược, Gap Analysis enterprise-level, và Business Case development."
+thumbnail: "cbap-strategy-analysis-p1.png"
+tags: ["CBAP", "strategy analysis", "current state", "future state", "gap analysis"]
+author: "BA Tập Sự"
+series: "on-thi-cbap"
+seriesOrder: 6
+---
+
+## Strategy Analysis — CBAP Level (15%)
+
+Strategy Analysis chiếm **15%** trong CBAP (tăng từ 12% trong CCBA), phản ánh kỳ vọng CBAP holders phải có **strategic thinking** mạnh. Đây là KA thể hiện rõ nhất sự khác biệt giữa "senior BA" (CCBA) và "strategic BA" (CBAP).
+
+### 4 Tasks trong Strategy Analysis
+
+```mermaid
+graph LR
+    T1["🔍 Analyze\nCurrent State"]
+    T2["🎯 Define\nFuture State"]
+    T3["⚠️ Assess\nRisks"]
+    T4["📋 Define\nChange Strategy"]
+
+    T1 --> T2
+    T2 --> T3
+    T3 --> T4
+    T1 --> T3
+
+    style T1 fill:#DBEAFE,stroke:#3B82F6,color:#333,stroke-width:2px
+    style T2 fill:#D1FAE5,stroke:#10B981,color:#333,stroke-width:2px
+```
+
+## Task 1: Analyze Current State
+
+### Framework phân tích Current State
+
+```mermaid
+graph TD
+    CS["🔍 Current State\nAnalysis"]
+
+    CS --> INTERNAL["🏢 Internal Analysis"]
+    CS --> EXTERNAL["🌍 External Analysis"]
+
+    INTERNAL --> ORG["Organizational\nCapabilities"]
+    INTERNAL --> PROC["Business\nProcesses"]
+    INTERNAL --> TECH["Technology\nLandscape"]
+    INTERNAL --> PPL["People &\nCulture"]
+
+    EXTERNAL --> MARKET["Market &\nCompetition"]
+    EXTERNAL --> CUST["Customers &\nTrends"]
+    EXTERNAL --> REG["Regulatory\nEnvironment"]
+    EXTERNAL --> MACRO["Macro Economic\nFactors"]
+
+    style CS fill:#F59E0B,stroke:#D97706,color:#000,stroke-width:3px
+```
+
+### SWOT Analysis — Enterprise Level
+
+```mermaid
+quadrantChart
+    title SWOT Matrix
+    x-axis Harmful --> Helpful
+    y-axis External --> Internal
+
+    quadrant-1 Strengths
+    quadrant-2 Weaknesses
+    quadrant-3 Threats
+    quadrant-4 Opportunities
+
+    Strong BA team: [0.8, 0.8]
+    Market leader: [0.7, 0.7]
+    Legacy systems: [0.3, 0.8]
+    Skill gaps: [0.2, 0.7]
+    New market SEA: [0.8, 0.3]
+    Digital transformation: [0.7, 0.2]
+    New competitors: [0.3, 0.3]
+    Regulation changes: [0.2, 0.2]
+```
+
+### SWOT Strategies
+
+| Strategy | Combination | CBAP Action |
+|---------|-----------|-------------|
+| **SO** (Maximize-Maximize) | Strengths + Opportunities | Leverage BA team → expand to SEA market |
+| **WO** (Minimize-Maximize) | Weaknesses + Opportunities | Address legacy → enable digital transformation |
+| **ST** (Maximize-Minimize) | Strengths + Threats | Use market position → defend against competitors |
+| **WT** (Minimize-Minimize) | Weaknesses + Threats | Fix skill gaps → prepare for regulation changes |
+
+### PESTLE Analysis
+
+| Factor | Description | CBAP Example |
+|--------|-----------|-------------|
+| **P**olitical | Government policies, stability | Healthcare: Policy changes affect compliance |
+| **E**conomic | Growth, inflation, exchange rates | Banking: Interest rate changes affect loan products |
+| **S**ocial | Demographics, culture, trends | Retail: Gen Z shopping behavior shifts |
+| **T**echnological | Innovation, automation, disruption | Insurance: AI/ML for claims processing |
+| **L**egal | Legislation, compliance, standards | Finance: GDPR, SOX compliance requirements |
+| **E**nvironmental | Sustainability, climate, resources | Manufacturing: Carbon reporting requirements |
+
+### Porter's Five Forces
+
+```mermaid
+graph TD
+    CENTER["🏢 Industry\nCompetition"]
+
+    NEW["🆕 Threat of\nNew Entrants"]
+    SUB["🔄 Threat of\nSubstitutes"]
+    BUYER["🛒 Bargaining Power\nof Buyers"]
+    SUPP["🏭 Bargaining Power\nof Suppliers"]
+    RIVAL["⚔️ Rivalry Among\nExisting Competitors"]
+
+    NEW -->|"Barriers to entry?"| CENTER
+    SUB -->|"Alternative solutions?"| CENTER
+    BUYER -->|"Customer power?"| CENTER
+    SUPP -->|"Vendor dependency?"| CENTER
+    RIVAL -->|"Competition intensity?"| CENTER
+
+    style CENTER fill:#F59E0B,stroke:#D97706,color:#000,stroke-width:3px
+```
+
+### Root Cause Analysis — CBAP Level
+
+```mermaid
+graph TD
+    PROB["🎯 Problem: Customer churn tăng 25%"]
+
+    PROB --> WHY1["Why? Poor customer experience"]
+    WHY1 --> WHY2["Why? Long response time"]
+    WHY2 --> WHY3["Why? Manual processes"]
+    WHY3 --> WHY4["Why? Legacy system limitations"]
+    WHY4 --> WHY5["Why? No investment in modernization"]
+
+    WHY5 --> ROOT["🔴 Root Cause:\nLack of technology\nmodernization strategy"]
+
+    style PROB fill:#FEE2E2,stroke:#F87171,color:#333,stroke-width:2px
+    style ROOT fill:#DBEAFE,stroke:#3B82F6,color:#333,stroke-width:2px
+```
+
+<Callout type="info" title="CBAP: Root cause vs Symptoms">
+CBAP test khả năng phân biệt **root cause** vs **symptoms**. "Customer churn tăng" là symptom. "Lack of technology modernization" là root cause. Đáp án đúng luôn address root cause, không phải symptoms.
+</Callout>
+
+## Task 2: Define Future State
+
+### Future State Components
+
+```mermaid
+graph TB
+    FS["🎯 Future State"]
+
+    FS --> VISION["🔭 Business Vision\n& Objectives"]
+    FS --> CAPS["💡 Required\nCapabilities"]
+    FS --> SCOPE["📐 Solution Scope\n& Boundaries"]
+    FS --> CONST["⚠️ Constraints\n& Assumptions"]
+
+    VISION --> V1["SMART objectives"]
+    VISION --> V2["Key Results (OKR)"]
+
+    CAPS --> C1["Capability gaps"]
+    CAPS --> C2["New capabilities needed"]
+
+    SCOPE --> S1["In-scope items"]
+    SCOPE --> S2["Out-of-scope items"]
+    SCOPE --> S3["Interfaces"]
+
+    style FS fill:#D1FAE5,stroke:#10B981,color:#333,stroke-width:3px
+```
+
+### SMART Objectives
+
+| Element | Bad Example | SMART Example |
+|---------|-----------|-------------|
+| **S**pecific | "Cải thiện service" | "Giảm thời gian xử lý đơn hàng" |
+| **M**easurable | "Tốt hơn" | "Từ 48h xuống 12h" |
+| **A**chievable | "Hoàn toàn tự động" | "Tự động 80% đơn hàng tiêu chuẩn" |
+| **R**elevant | "Mọi quy trình" | "Quy trình đơn hàng online" |
+| **T**ime-bound | "Sớm nhất có thể" | "Hoàn thành trong Q4 2026" |
+
+### Business Model Canvas — CBAP Tool
+
+| Block | Current State | Future State |
+|-------|-------------|-------------|
+| **Customer Segments** | B2B large enterprise | B2B + B2C SMB expansion |
+| **Value Proposition** | On-premise ERP | Cloud-based SaaS ERP |
+| **Channels** | Direct sales | Direct + Partner + Online |
+| **Revenue Streams** | License + maintenance | Subscription (MRR) |
+| **Key Resources** | On-prem infrastructure | Cloud infrastructure + DevOps |
+| **Key Activities** | Customization projects | Product development + support |
+| **Key Partnerships** | Few resellers | Cloud providers + ecosystem |
+| **Cost Structure** | High CAPEX | Lower OPEX, scalable |
+
+## Gap Analysis — Enterprise Level
+
+### Gap Analysis Framework
+
+```mermaid
+graph LR
+    CURRENT["🔍 Current State\n(AS-IS)"]
+    GAP["📊 Gap\nAnalysis"]
+    FUTURE["🎯 Future State\n(TO-BE)"]
+
+    CURRENT --> GAP
+    FUTURE --> GAP
+
+    GAP --> G1["🔴 Capability Gaps\nWhat we can't do yet"]
+    GAP --> G2["🟡 Process Gaps\nWhat we do inefficiently"]
+    GAP --> G3["🔵 Technology Gaps\nWhat tools/systems we lack"]
+    GAP --> G4["🟣 People Gaps\nWhat skills we need"]
+    GAP --> G5["🟢 Organizational Gaps\nWhat structures need change"]
+
+    style GAP fill:#F59E0B,stroke:#D97706,color:#000,stroke-width:3px
+```
+
+### Gap Analysis Matrix
+
+| Area | Current State | Future State | Gap | Priority |
+|-----|-------------|-------------|-----|---------|
+| **Order Processing** | Manual, 48h | Automated, 12h | Process automation | 🔴 High |
+| **Customer Portal** | None | Self-service portal | New capability | 🔴 High |
+| **Reporting** | Excel-based | Real-time dashboard | BI platform | 🟡 Medium |
+| **Mobile Access** | None | Mobile app | New channel | 🟡 Medium |
+| **Data Integration** | File-based ETL | Real-time API | Integration platform | 🟢 Low |
+
+### Business Case Development
+
+```mermaid
+graph TD
+    BC["📋 Business Case"]
+
+    BC --> PROBLEM["🔴 Problem Statement\nQuantified impact"]
+    BC --> OPTIONS["🔄 Solution Options\n(3+ alternatives)"]
+    BC --> FINANCIAL["💰 Financial Analysis\nROI, NPV, Payback"]
+    BC --> RISK["⚠️ Risk Assessment\nper option"]
+    BC --> RECOMMEND["✅ Recommendation\nwith rationale"]
+
+    OPTIONS --> O1["Option 1:\nDo Nothing"]
+    OPTIONS --> O2["Option 2:\nBuild (custom)"]
+    OPTIONS --> O3["Option 3:\nBuy (COTS)"]
+    OPTIONS --> O4["Option 4:\nHybrid"]
+
+    style BC fill:#DBEAFE,stroke:#3B82F6,color:#333,stroke-width:2px
+    style RECOMMEND fill:#D1FAE5,stroke:#10B981,color:#333,stroke-width:2px
+```
+
+### Financial Analysis Methods
+
+| Method | Formula | Use Case |
+|--------|---------|---------|
+| **ROI** | (Benefits - Costs) / Costs × 100% | Quick comparison between options |
+| **NPV** | Σ [Cash Flow / (1+r)^t] | Long-term investment comparison |
+| **Payback Period** | Initial Investment / Annual Cash Flow | Time to recover investment |
+| **IRR** | Rate where NPV = 0 | Compare with hurdle rate |
+
+**Ví dụ tính ROI:**
+
+| Item | Option A (Build) | Option B (Buy) |
+|-----|----------------:|---------------:|
+| Initial Cost | -$500,000 | -$300,000 |
+| Annual Benefit | $200,000 | $150,000 |
+| Annual Maintenance | -$50,000 | -$80,000 |
+| Net Annual Benefit | $150,000 | $70,000 |
+| 3-Year ROI | **($450K-$500K)/$500K = -10%** | **($210K-$300K)/$300K = -30%** |
+| 5-Year ROI | **($750K-$500K)/$500K = 50%** ✅ | **($350K-$300K)/$300K = 17%** |
+
+<Callout type="tip" title='CBAP exam: "Do Nothing" option'>
+Luôn include "Do Nothing" (status quo) trong options analysis. Đây là **baseline** để so sánh. Nếu "Do Nothing" cost < thay đổi → có thể hợp lý! CBAP test khả năng **objective evaluation**, kể cả khi stakeholder muốn thay đổi.
+</Callout>
+
+## Câu hỏi CBAP thường gặp về SA (Part 1)
+
+### Scenario 1
+> Công ty phân tích current state cho thấy 3 root causes. Executive muốn address cả 3 cùng lúc nhưng budget hạn chế. BA nên:
+>
+> A. Address root cause lớn nhất  
+> B. **Analyze cost-benefit cho từng root cause, recommend phased approach** ✅  
+> C. Yêu cầu thêm budget  
+> D. Address tất cả với reduced scope
+
+### Scenario 2
+> BA đang define future state objectives. Stakeholder nói "muốn hệ thống nhanh hơn". BA nên:
+>
+> A. Document "improve system speed"  
+> B. **Probe for specifics: "Nhanh hơn nghĩa là gì? Từ bao lâu xuống bao lâu?"** ✅  
+> C. Dùng industry benchmark  
+> D. Để technical team define
+
+### Scenario 3
+> SWOT analysis reveal strength lớn nhất là "experienced team" và opportunity lớn nhất là "market expansion". BA nên recommend:
+>
+> A. WT strategy  
+> B. WO strategy  
+> C. **SO strategy — leverage experienced team for market expansion** ✅  
+> D. ST strategy
+
+<Callout type="success" title="Key takeaway">
+Strategy Analysis Part 1 = **Understand where we are** (Current State) + **Define where we want to be** (Future State) + **Quantify the gap** (Gap Analysis) + **Build the case** (Business Case). Mọi recommendation phải dựa trên **data và analysis**, không phải intuition.
+</Callout>
+
+## 📝 Tóm tắt kiến thức nổi bật
+
+<Callout type="success" title="Key Takeaways — Bài 6">
+- SA ở CBAP chiếm **15%** (vs 12% CCBA) — yêu cầu **enterprise-level strategic thinking**
+- **SWOT + PESTLE + Porter's Five Forces**: Ba frameworks chiến lược kết hợp cho Current State Analysis toàn diện
+- **Root Cause Analysis**: Fishbone (Ishikawa) + 5 Whys — dig deep, don't treat symptoms
+- **Future State**: SMART Objectives + Business Model Canvas → clear, measurable destination
+- **Gap Analysis**: Current → Future → identify gaps → define actions to bridge
+- **Business Case**: Problem → Options → Financial Analysis (ROI, NPV, Payback) → Recommendation → Risk Assessment
+- Mọi recommendation phải dựa trên **data và analysis**, không phải intuition
+</Callout>
+
+---
+
+## 📋 Bài kiểm tra trắc nghiệm — Bài 6
+
+<Callout type="info" title="Hướng dẫn làm bài">
+Làm **10 câu** bên dưới trong **17 phút**. Đáp án ở cuối bài.
+</Callout>
+
+**Câu 1.** PESTLE Analysis examines which external factors?
+
+- A. Product, Engineering, Sales, Testing, Legal, Ethics
+- B. Political, Economic, Social, Technological, Legal, Environmental
+- C. People, Evaluation, Strategy, Timing, Leadership, Execution
+- D. Project, Estimation, Scope, Timeline, Limitations, Effort
+
+**Câu 2.** Porter's Five Forces reveals "New entrants have low barriers." This means:
+
+- A. Good for the company — easy to expand
+- B. Threat — new competitors can enter easily, increasing competition
+- C. No impact
+- D. Opportunity for partnerships
+
+**Câu 3.** Business objective: "Reduce operational costs by 25% within 18 months through process automation." Is this SMART?
+
+- A. Yes — it has S (reduce costs), M (25%), A (feasible), R (business-relevant), T (18 months)
+- B. No — missing Specific
+- C. No — missing Measurable
+- D. No — missing Time-bound
+
+**Câu 4.** NPV = $500,000 for Option A, NPV = -$100,000 for Option B. BA should:
+
+- A. Choose cheaper option
+- B. Recommend Option A — positive NPV means returns exceed investment
+- C. Choose Option B — negative NPV means less risk
+- D. Need more information
+
+**Câu 5.** Business Case should include all EXCEPT:
+
+- A. Problem statement
+- B. Financial analysis (ROI, NPV)
+- C. Risk assessment
+- D. Detailed technical implementation design
+
+**Câu 6.** Root Cause Analysis: Customer complaints about late deliveries. 5 Whys reveals it's because warehouse staff don't know which orders are urgent. Root cause is:
+
+- A. Slow delivery trucks
+- B. Lack of order priority visibility in the warehouse system
+- C. Too many orders
+- D. Understaffed warehouse
+
+**Câu 7.** Gap Analysis identifies 3 critical gaps. BA should:
+
+- A. Address all gaps simultaneously
+- B. Prioritize gaps by business impact and define phased action plan
+- C. Report gaps and wait for management
+- D. Only address the easiest gap
+
+**Câu 8.** SWOT: Company has weak digital capabilities (W) but customers want digital-first experience (O). Strategy should be:
+
+- A. SO — leverage strengths
+- B. WO — invest to overcome weakness and exploit opportunity
+- C. ST — use strength against threats
+- D. WT — defensive
+
+**Câu 9.** ROI formula is:
+
+- A. (Cost - Gain) / Cost × 100
+- B. (Gain - Cost) / Cost × 100%
+- C. Gain / Cost
+- D. Cost / Gain × 100%
+
+**Câu 10.** Business Model Canvas includes which value-focused component?
+
+- A. Gantt Chart
+- B. Value Propositions — what unique value the business delivers to customers
+- C. RACI Matrix
+- D. ERD
+
+---
+
+### 🔑 Đáp án & Giải thích
+
+| Câu | Đáp án | Giải thích |
+|:---:|:------:|-----------|
+| 1 | **B** | PESTLE = Political, Economic, Social, Technological, Legal, Environmental. |
+| 2 | **B** | Low barriers to entry = threat of new entrants high → more competition. |
+| 3 | **A** | Has all SMART components: S (operational costs), M (25%), A (process automation is feasible), R (business-relevant), T (18 months). |
+| 4 | **B** | Positive NPV = value creation. Negative NPV = value destruction. Choose positive NPV. |
+| 5 | **D** | Business Case = strategic level. Detailed technical design belongs in solution design phase, not business case. |
+| 6 | **B** | 5 Whys reached: warehouse staff can't see priority → need priority visibility in system. |
+| 7 | **B** | Prioritize by business impact, create phased plan. Don't try everything at once. |
+| 8 | **B** | Weakness + Opportunity = WO strategy — invest to overcome weakness and capture opportunity. |
+| 9 | **B** | ROI = (Gain - Cost) / Cost × 100%. Gain $150K, Cost $100K → ROI = 50%. |
+| 10 | **B** | Business Model Canvas has "Value Propositions" — the core of what business offers. |
+
+### 📊 Thang đánh giá
+
+| Số câu đúng | Đánh giá | Hành động |
+|:-----------:|---------|-----------|
+| 9-10 | ⭐ Xuất sắc | SA Part 1 nắm vững! |
+| 7-8 | ✅ Tốt | Ôn lại PESTLE và Financial Analysis formulas |
+| 5-6 | ⚠️ Trung bình | Focus Business Case structure và SWOT strategies |
+| < 5 | ❌ Cần ôn lại | SA 15% — strategic thinking là key differentiator ở CBAP |
+
+---
+
+*Tiếp theo: Strategy Analysis nâng cao — Phần 2: Risk & Change Strategy 👉*
