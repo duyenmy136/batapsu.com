@@ -1,7 +1,7 @@
 import { ExamConfig } from '@/components/ExamSimulator';
 
 const cbapExamConfig: ExamConfig = {
-  title: 'Đề thi thử CBAP — 50 câu Simulation',
+  title: 'CBAP Practice Exam — 50 Questions Simulation',
   certName: 'CBAP',
   totalTimeMinutes: 88,
   passingScore: 70,
@@ -23,49 +23,49 @@ const cbapExamConfig: ExamConfig = {
     se: 7,
   },
   questionPool: [
-    // ═══ BA Planning & Monitoring — 14% → 7 câu ═══
+    // ═══ BA Planning & Monitoring — 14% → 7 questions ═══
     {
       id: 1, ka: 'planning',
-      question: 'Enterprise có 50 BA practitioners. Senior management yêu cầu BA Lead thiết lập BA Center of Excellence (CoE). Deliverable FIRST nên là:',
+      question: 'An enterprise has 50 BA practitioners. Senior management asks the BA Lead to establish a BA Center of Excellence (CoE). The FIRST deliverable should be:',
       options: [
-        'Training schedule cho tất cả BA',
-        'BA Standards and Governance Framework — methodology, templates, quality standards, roles, escalation paths',
-        'Tool evaluation report',
-        'Hiring plan cho thêm BA',
+        'A training schedule for all BAs',
+        'A BA Standards and Governance Framework — methodology, templates, quality standards, roles, and escalation paths',
+        'A tool evaluation report',
+        'A hiring plan for additional BAs',
       ],
       correct: 1,
       explanation: 'CoE FIRST needs governance and standards framework — foundation for everything else.',
     },
     {
       id: 2, ka: 'planning',
-      question: 'BA Planning cho enterprise-wide digital transformation (5 projects, 200+ stakeholders). BA approach nên:',
+      question: 'BA Planning for an enterprise-wide digital transformation (5 projects, 200+ stakeholders). The BA approach should:',
       options: [
-        'Dùng một approach duy nhất cho tất cả',
-        'Define tiered approach — enterprise-level governance + project-level BA plans tailored per project context',
-        'Không cần planning — quá lớn',
-        'Chỉ focus 1 project',
+        'Use a single approach for everything',
+        'Define a tiered approach — enterprise-level governance + project-level BA plans tailored per project context',
+        'Skip planning — too large',
+        'Focus only on 1 project',
       ],
       correct: 1,
       explanation: 'Enterprise programs need tiered governance: enterprise-level + project-level BA plans.',
     },
     {
       id: 3, ka: 'planning',
-      question: 'Organizational Process Assets (OPA) cho BA practice include:',
+      question: 'Organizational Process Assets (OPA) for BA practice include:',
       options: [
-        'Chỉ BABOK Guide',
-        'Templates, lessons learned, BA policies, approved standards, historical project data, reusable requirements',
-        'Chỉ project management plans',
-        'Chỉ technical documentation',
+        'Only the BABOK Guide',
+        'Templates, lessons learned, BA policies, approved standards, historical project data, and reusable requirements',
+        'Only project management plans',
+        'Only technical documentation',
       ],
       correct: 1,
       explanation: 'OPA = templates, lessons learned, policies, standards, historical data, reusable artifacts.',
     },
     {
       id: 4, ka: 'planning',
-      question: 'BA conducting stakeholder analysis cho enterprise merger (2 companies). Key challenge là:',
+      question: 'A BA is conducting stakeholder analysis for an enterprise merger (2 companies). The key challenge is:',
       options: [
         'Too few stakeholders',
-        'Conflicting organizational cultures, duplicate roles, power dynamics, và resistance from both sides',
+        'Conflicting organizational cultures, duplicate roles, power dynamics, and resistance from both sides',
         'Budget only',
         'Technology only',
       ],
@@ -74,11 +74,11 @@ const cbapExamConfig: ExamConfig = {
     },
     {
       id: 5, ka: 'planning',
-      question: 'BA Performance: Enterprise muốn measure BA practice maturity. Best framework:',
+      question: 'An enterprise wants to measure BA practice maturity. The best framework is:',
       options: [
-        'Count number of requirements written',
-        'BA Maturity Model — assess across dimensions: process, people, technology, governance, and continuous improvement',
-        'Count number of BAs',
+        'Count the number of requirements written',
+        'A BA Maturity Model — assess across dimensions: process, people, technology, governance, and continuous improvement',
+        'Count the number of BAs',
         'Measure only project completion rate',
       ],
       correct: 1,
@@ -86,10 +86,10 @@ const cbapExamConfig: ExamConfig = {
     },
     {
       id: 6, ka: 'planning',
-      question: 'Adaptive vs Predictive: Enterprise has mixed portfolio — regulatory compliance project + innovation R&D project. BA approach:',
+      question: 'An enterprise has a mixed portfolio — a regulatory compliance project and an innovation R&D project. The BA approach should be:',
       options: [
         'All Predictive',
-        'Hybrid portfolio: Predictive for compliance (documentation-heavy, fixed scope), Adaptive for R&D (experimental, evolving)',
+        'A hybrid portfolio: Predictive for compliance (documentation-heavy, fixed scope), Adaptive for R&D (experimental, evolving)',
         'All Adaptive',
         'No BA needed for R&D',
       ],
@@ -101,33 +101,33 @@ const cbapExamConfig: ExamConfig = {
       question: 'BA Governance at enterprise level: Who should own the enterprise-wide requirements repository?',
       options: [
         'Individual project BAs independently',
-        'BA Center of Excellence (CoE) — centralized ownership with governed access for consistency and reuse',
-        'IT department only',
+        'The BA Center of Excellence (CoE) — centralized ownership with governed access for consistency and reuse',
+        'The IT department only',
         'Each department separately',
       ],
       correct: 1,
       explanation: 'CoE owns enterprise requirements repository — ensures consistency, governed access, reuse.',
     },
 
-    // ═══ Elicitation & Collaboration — 12% → 6 câu ═══
+    // ═══ Elicitation & Collaboration — 12% → 6 questions ═══
     {
       id: 8, ka: 'elicitation',
-      question: 'Enterprise-wide workshop with C-suite executives, middle management, và end-users (30 people). BA facilitator nên:',
+      question: 'An enterprise-wide workshop with C-suite executives, middle management, and end-users (30 people). The BA facilitator should:',
       options: [
         'Treat everyone equally in one big session',
         'Segment into tiered sessions: C-suite (strategic vision), management (operational needs), users (functional needs) — then consolidate',
         'Only invite C-suite',
-        'Skip workshop, use email',
+        'Skip the workshop and use email',
       ],
       correct: 1,
       explanation: 'Tiered sessions by stakeholder level — different concerns, different engagement approach.',
     },
     {
       id: 9, ka: 'elicitation',
-      question: 'Distributed teams across 4 countries, 3 time zones. Elicitation strategy:',
+      question: 'Distributed teams across 4 countries and 3 time zones. The best elicitation strategy is:',
       options: [
         'In-person workshops only — fly everyone in',
-        'Async + sync hybrid: async document reviews/surveys per timezone, sync virtual sessions at overlapping hours, collaborative tools',
+        'An async + sync hybrid: async document reviews/surveys per timezone, sync virtual sessions at overlapping hours, collaborative tools',
         'Email only',
         'Delay until co-located',
       ],
@@ -136,11 +136,11 @@ const cbapExamConfig: ExamConfig = {
     },
     {
       id: 10, ka: 'elicitation',
-      question: 'BA notices confirmation bias in stakeholder interviews — stakeholders only sharing info that supports their preferred solution. BA should:',
+      question: 'A BA notices confirmation bias in stakeholder interviews — stakeholders only share info that supports their preferred solution. The BA should:',
       options: [
         'Accept what they say — stakeholders are always right',
-        'Use techniques to counter: devil\'s advocate questions, cross-validate with other sources, present contradictory data, triangulate',
-        'Confront stakeholder directly',
+        'Use counter-techniques: devil\'s advocate questions, cross-validation with other sources, presenting contradictory data, and triangulation',
+        'Confront the stakeholder directly',
         'Report to management',
       ],
       correct: 1,
@@ -148,22 +148,22 @@ const cbapExamConfig: ExamConfig = {
     },
     {
       id: 11, ka: 'elicitation',
-      question: 'Cultural sensitivity: BA working with Japanese stakeholders who tend to avoid direct "no." Approach:',
+      question: 'Cultural sensitivity: A BA is working with Japanese stakeholders who tend to avoid a direct "no." The best approach is:',
       options: [
         'Force direct answers',
-        'Adapt communication: allow face-saving, use indirect questions, read non-verbal cues, provide written review periods',
+        'Adapt communication: allow face-saving, use indirect questions, read non-verbal cues, and provide written review periods',
         'Ignore cultural differences',
-        'Use translator only',
+        'Use a translator only',
       ],
       correct: 1,
       explanation: 'Cultural sensitivity: adapt communication style, allow face-saving, read between lines.',
     },
     {
       id: 12, ka: 'elicitation',
-      question: 'Post-merger: 2 companies have different terminology for same concepts ("Customer" vs "Client", "Order" vs "Sales Request"). BA should:',
+      question: 'Post-merger: Two companies use different terminology for the same concepts ("Customer" vs "Client", "Order" vs "Sales Request"). The BA should:',
       options: [
         'Pick one company\'s terms',
-        'Create enterprise glossary/data dictionary — map terms, establish common vocabulary, gain consensus on standard definitions',
+        'Create an enterprise glossary/data dictionary — map terms, establish common vocabulary, and gain consensus on standard definitions',
         'Use both interchangeably',
         'Let each team keep their terms',
       ],
@@ -172,25 +172,25 @@ const cbapExamConfig: ExamConfig = {
     },
     {
       id: 13, ka: 'elicitation',
-      question: 'Stakeholder refuses to participate in BA activities, claiming "too busy." This stakeholder owns critical domain knowledge. BA should:',
+      question: 'A stakeholder refuses to participate in BA activities, claiming to be "too busy." This stakeholder owns critical domain knowledge. The BA should:',
       options: [
-        'Skip stakeholder — document without their input',
-        'Escalate risk, propose alternatives (short focused sessions, async review, delegate, executive sponsorship to emphasize importance)',
-        'Replace stakeholder',
+        'Skip the stakeholder — document without their input',
+        'Escalate the risk and propose alternatives (short focused sessions, async review, delegation, executive sponsorship to emphasize importance)',
+        'Replace the stakeholder',
         'Proceed without that domain knowledge',
       ],
       correct: 1,
       explanation: 'Critical stakeholder → escalate, propose alternatives to minimize their time commitment.',
     },
 
-    // ═══ Requirements Lifecycle Management — 15% → 7 câu ═══
+    // ═══ Requirements Lifecycle Management — 15% → 7 questions ═══
     {
       id: 14, ka: 'rlm',
-      question: 'Enterprise requirements governance: 3 projects share customer data requirements. Change in Project A impacts Projects B and C. BA should:',
+      question: 'Enterprise requirements governance: 3 projects share customer data requirements. A change in Project A impacts Projects B and C. The BA should:',
       options: [
         'Only update Project A',
-        'Enterprise-level impact analysis — trace shared requirements, notify impacted project BAs, coordinate changes through enterprise CCB',
-        'Let each project handle independently',
+        'Perform enterprise-level impact analysis — trace shared requirements, notify impacted project BAs, and coordinate changes through the enterprise CCB',
+        'Let each project handle it independently',
         'Freeze all requirements',
       ],
       correct: 1,
@@ -198,7 +198,7 @@ const cbapExamConfig: ExamConfig = {
     },
     {
       id: 15, ka: 'rlm',
-      question: 'Kano Model: Customer expects login feature. If present, neutral satisfaction. If absent, extreme dissatisfaction. This is:',
+      question: 'Kano Model: A customer expects the login feature. If present, neutral satisfaction. If absent, extreme dissatisfaction. This is a:',
       options: [
         'Performance attribute',
         'Basic/Must-be attribute — expected, no delight when present, strong dissatisfaction when absent',
@@ -210,10 +210,10 @@ const cbapExamConfig: ExamConfig = {
     },
     {
       id: 16, ka: 'rlm',
-      question: 'Requirement retirement: REQ approved 3 years ago, business environment changed, requirement no longer relevant. Best action:',
+      question: 'A requirement was approved 3 years ago. The business environment has changed and the requirement is no longer relevant. The best action is:',
       options: [
         'Leave it — it\'s approved',
-        'Initiate formal retirement: document rationale, assess dependent requirements, get approval, update baseline',
+        'Initiate formal retirement: document rationale, assess dependent requirements, get approval, and update the baseline',
         'Delete without documentation',
         'Mark as low priority',
       ],
@@ -222,11 +222,11 @@ const cbapExamConfig: ExamConfig = {
     },
     {
       id: 17, ka: 'rlm',
-      question: 'Enterprise traceability strategy: BA manages 500+ requirements across 5 systems. Traceability tool should provide:',
+      question: 'Enterprise traceability strategy: A BA manages 500+ requirements across 5 systems. The traceability tool should provide:',
       options: [
         'Just a spreadsheet',
-        'Automated bidirectional traceability, impact analysis, coverage reports, version history, cross-project linking',
-        'Only requirements list',
+        'Automated bidirectional traceability, impact analysis, coverage reports, version history, and cross-project linking',
+        'Only a requirements list',
         'Only test mapping',
       ],
       correct: 1,
@@ -234,10 +234,10 @@ const cbapExamConfig: ExamConfig = {
     },
     {
       id: 18, ka: 'rlm',
-      question: 'Requirements versioning: Stakeholder A approved v1.0 of REQ-100. BA updates to v1.1 based on new input from Stakeholder B. Process:',
+      question: 'Requirements versioning: Stakeholder A approved v1.0 of REQ-100. The BA updates to v1.1 based on new input from Stakeholder B. The correct process is:',
       options: [
         'Update silently',
-        'Document change rationale, notify Stakeholder A of change, re-validate v1.1 with both stakeholders, update traceability',
+        'Document the change rationale, notify Stakeholder A of the change, re-validate v1.1 with both stakeholders, and update traceability',
         'Only notify Stakeholder B',
         'Delete v1.0',
       ],
@@ -246,10 +246,10 @@ const cbapExamConfig: ExamConfig = {
     },
     {
       id: 19, ka: 'rlm',
-      question: 'Requirements prioritization: Multiple stakeholders disagree on priority. BA has tried MoSCoW but no consensus. Next approach:',
+      question: 'Multiple stakeholders disagree on requirements priority. The BA tried MoSCoW but no consensus was reached. The next approach should be:',
       options: [
         'BA decides unilaterally',
-        'Weighted scoring: define criteria (business value, risk, cost, dependencies), assign weights, score each requirement — data-driven',
+        'Weighted scoring: define criteria (business value, risk, cost, dependencies), assign weights, and score each requirement — data-driven',
         'Random priority',
         'Include everything as Must Have',
       ],
@@ -258,21 +258,21 @@ const cbapExamConfig: ExamConfig = {
     },
     {
       id: 20, ka: 'rlm',
-      question: 'Regulatory audit requirement: BA must prove all requirements are traceable to test cases. What artifact proves this?',
+      question: 'For a regulatory audit, a BA must prove all requirements are traceable to test cases. What artifact proves this?',
       options: [
         'Meeting minutes',
-        'Requirements Traceability Matrix (RTM) showing bidirectional links from requirements to test cases with coverage metrics',
-        'Project plan',
-        'Status report',
+        'A Requirements Traceability Matrix (RTM) showing bidirectional links from requirements to test cases with coverage metrics',
+        'The project plan',
+        'A status report',
       ],
       correct: 1,
       explanation: 'RTM with bidirectional links and coverage metrics proves traceability for audits.',
     },
 
-    // ═══ Strategy Analysis — 15% → 8 câu ═══
+    // ═══ Strategy Analysis — 15% → 8 questions ═══
     {
       id: 21, ka: 'strategy',
-      question: 'PESTLE Analysis: New data privacy law (GDPR equivalent) impacts enterprise strategy. This is from which PESTLE factor?',
+      question: 'PESTLE Analysis: A new data privacy law (GDPR equivalent) impacts enterprise strategy. This is from which PESTLE factor?',
       options: [
         'Political',
         'Legal — new legislation directly impacting business operations and data handling',
@@ -284,7 +284,7 @@ const cbapExamConfig: ExamConfig = {
     },
     {
       id: 22, ka: 'strategy',
-      question: 'Porter\'s Five Forces: Enterprise\'s key supplier has monopoly on critical component. This represents:',
+      question: 'Porter\'s Five Forces: The enterprise\'s key supplier has a monopoly on a critical component. This represents:',
       options: [
         'Threat of new entrants',
         'Bargaining Power of Suppliers — monopoly = high supplier power, risk to enterprise\'s operations',
@@ -296,7 +296,7 @@ const cbapExamConfig: ExamConfig = {
     },
     {
       id: 23, ka: 'strategy',
-      question: 'Business Case: Project costs $2M, expected benefits $500K/year for 6 years. NPV at 10% discount rate is approximately:',
+      question: 'Business Case: Project costs $2M, expected benefits $500K/year for 6 years. The NPV at a 10% discount rate is approximately:',
       options: [
         '$1M — just subtract cost from total benefits',
         'Calculate PV of each year\'s $500K: ~$2.17M total PV − $2M cost ≈ $170K positive NPV — marginally viable',
@@ -308,23 +308,23 @@ const cbapExamConfig: ExamConfig = {
     },
     {
       id: 24, ka: 'strategy',
-      question: 'Enterprise strategy: CEO wants to "become digital-first." BA should translate this into:',
+      question: 'The CEO wants to "become digital-first." The BA should translate this into:',
       options: [
-        'Buy latest technology immediately',
-        'Define measurable business objectives, identify capability gaps, create initiative roadmap, define success metrics',
+        'Buy the latest technology immediately',
+        'Define measurable business objectives, identify capability gaps, create an initiative roadmap, and define success metrics',
         'Hire more IT staff',
-        'Create website',
+        'Create a website',
       ],
       correct: 1,
       explanation: 'Strategic vision → measurable objectives → gap analysis → initiative roadmap → metrics.',
     },
     {
       id: 25, ka: 'strategy',
-      question: 'Change Strategy: Kotter\'s 8 Steps — FIRST step is:',
+      question: 'Change Strategy: Kotter\'s 8 Steps — the FIRST step is:',
       options: [
-        'Form coalition',
-        'Create urgency — stakeholders must understand WHY change is necessary BEFORE building coalition',
-        'Create vision',
+        'Form a coalition',
+        'Create urgency — stakeholders must understand WHY change is necessary BEFORE building a coalition',
+        'Create a vision',
         'Anchor in culture',
       ],
       correct: 1,
@@ -332,22 +332,22 @@ const cbapExamConfig: ExamConfig = {
     },
     {
       id: 26, ka: 'strategy',
-      question: 'Risk Register: Risk identified "Key technical architect leaves mid-project." Probability: Medium, Impact: High. Risk response:',
+      question: 'Risk Register: Risk identified — "Key technical architect leaves mid-project." Probability: Medium, Impact: High. The risk response should be:',
       options: [
         'Ignore — unlikely',
-        'Mitigate: document architecture decisions, cross-train team members, create technical documentation, identify backup resource',
-        'Accept without plan',
-        'Cancel project',
+        'Mitigate: document architecture decisions, cross-train team members, create technical documentation, and identify a backup resource',
+        'Accept without a plan',
+        'Cancel the project',
       ],
       correct: 1,
       explanation: 'Key person dependency → mitigate with knowledge transfer, documentation, backup resources.',
     },
     {
       id: 27, ka: 'strategy',
-      question: 'Transition Planning: Enterprise migrating from on-premise to cloud. 500 users. Transition requirements should include:',
+      question: 'An enterprise is migrating from on-premise to cloud (500 users). Transition requirements should include:',
       options: [
         'Only technical migration steps',
-        'Data migration plan, parallel running period, user training, rollback procedure, communication plan, performance benchmarks',
+        'A data migration plan, parallel running period, user training, rollback procedure, communication plan, and performance benchmarks',
         'Only user training',
         'Only data backup',
       ],
@@ -356,33 +356,33 @@ const cbapExamConfig: ExamConfig = {
     },
     {
       id: 28, ka: 'strategy',
-      question: 'Stakeholder resistance to proposed solution: 3 department heads actively blocking adoption. Root cause analysis reveals fear of job loss. BA strategy:',
+      question: 'Three department heads are actively blocking solution adoption. Root cause analysis reveals fear of job loss. The BA strategy should be:',
       options: [
-        'Escalate to CEO to force compliance',
-        'Address root cause: clarify new roles, demonstrate how solution enhances (not replaces) their work, involve them in design decisions',
-        'Ignore resistance',
+        'Escalate to the CEO to force compliance',
+        'Address the root cause: clarify new roles, demonstrate how the solution enhances (not replaces) their work, and involve them in design decisions',
+        'Ignore the resistance',
         'Remove solution features they oppose',
       ],
       correct: 1,
       explanation: 'Address root cause of resistance — fear of job loss → demonstrate enhancement, involve in decisions.',
     },
 
-    // ═══ RADD — 30% → 15 câu ═══
+    // ═══ RADD — 30% → 15 questions ═══
     {
       id: 29, ka: 'radd',
-      question: 'Enterprise integration: 5 systems need to share customer data. BA needs to model data structure across all systems. Best approach:',
+      question: 'Five systems need to share customer data. The BA needs to model the data structure across all systems. The best approach is:',
       options: [
-        'Separate ERD per system',
-        'Enterprise Data Model — canonical data model showing shared entities, relationships, and system-specific extensions',
-        'Use Case Diagram',
-        'State Diagram',
+        'A separate ERD per system',
+        'An Enterprise Data Model — a canonical data model showing shared entities, relationships, and system-specific extensions',
+        'A Use Case Diagram',
+        'A State Diagram',
       ],
       correct: 1,
       explanation: 'Cross-system data sharing → Enterprise/Canonical Data Model with shared entities.',
     },
     {
       id: 30, ka: 'radd',
-      question: 'Advanced BPMN: Order process has parallel approval from Finance AND Legal before proceeding. BPMN element:',
+      question: 'An order process requires parallel approval from Finance AND Legal before proceeding. The BPMN element to use is:',
       options: [
         'Exclusive Gateway (XOR)',
         'Parallel Gateway (AND) — both paths execute simultaneously, join when both complete',
@@ -394,11 +394,11 @@ const cbapExamConfig: ExamConfig = {
     },
     {
       id: 31, ka: 'radd',
-      question: 'Requirements Architecture vs Requirements List: key difference at CBAP level:',
+      question: 'Requirements Architecture vs Requirements List: The key difference at CBAP level is:',
       options: [
         'No difference',
-        'Architecture shows structure, hierarchies, dependencies, groupings, and traceability — List is flat enumeration',
-        'List is more detailed',
+        'Architecture shows structure, hierarchies, dependencies, groupings, and traceability — a List is a flat enumeration',
+        'A List is more detailed',
         'Architecture is for IT only',
       ],
       correct: 1,
@@ -406,10 +406,10 @@ const cbapExamConfig: ExamConfig = {
     },
     {
       id: 32, ka: 'radd',
-      question: 'NFR: "System must encrypt all PII data at rest and in transit using AES-256." This NFR drives:',
+      question: 'NFR: "The system must encrypt all PII data at rest and in transit using AES-256." This NFR drives:',
       options: [
         'UI design decisions',
-        'Security architecture — encryption layers, key management, SSL/TLS, certificate management',
+        'Security architecture — encryption layers, key management, SSL/TLS, and certificate management',
         'Database schema design only',
         'Process flow design',
       ],
@@ -418,10 +418,10 @@ const cbapExamConfig: ExamConfig = {
     },
     {
       id: 33, ka: 'radd',
-      question: 'Use Case Specification: Main Flow → Alternative Flow → Exception Flow. "User enters wrong password 3 times, account locks." This is:',
+      question: 'Use Case Specification: Main Flow → Alternative Flow → Exception Flow. "User enters the wrong password 3 times and the account locks." This is:',
       options: [
         'Main Flow',
-        'Exception Flow — error handling, security response to abnormal situation',
+        'Exception Flow — error handling, security response to an abnormal situation',
         'Alternative Flow',
         'Post-condition',
       ],
@@ -430,10 +430,10 @@ const cbapExamConfig: ExamConfig = {
     },
     {
       id: 34, ka: 'radd',
-      question: 'BA verifying requirements checklist: REQ "System should be easy to use." Verification result:',
+      question: 'A BA is verifying a requirement: "The system should be easy to use." The verification result is:',
       options: [
         'Pass — clear enough',
-        'Fail — "easy to use" is subjective, not measurable. Should be "Task completion rate > 90% for first-time users within 5 minutes"',
+        'Fail — "easy to use" is subjective and not measurable. It should be "Task completion rate > 90% for first-time users within 5 minutes"',
         'Pass — with usability testing',
         'Not applicable to verification',
       ],
@@ -442,11 +442,11 @@ const cbapExamConfig: ExamConfig = {
     },
     {
       id: 35, ka: 'radd',
-      question: 'Dependency Analysis: REQ-301 depends on REQ-105, which is deferred to Phase 2. Impact on REQ-301:',
+      question: 'Dependency Analysis: REQ-301 depends on REQ-105, which is deferred to Phase 2. The impact on REQ-301 is:',
       options: [
         'No impact — implement anyway',
-        'REQ-301 must also be deferred OR dependency removed by finding alternative approach to satisfy REQ-301',
-        'REQ-105 auto-prioritized',
+        'REQ-301 must also be deferred OR the dependency must be removed by finding an alternative approach to satisfy REQ-301',
+        'REQ-105 is auto-prioritized',
         'Delete REQ-301',
       ],
       correct: 1,
@@ -454,10 +454,10 @@ const cbapExamConfig: ExamConfig = {
     },
     {
       id: 36, ka: 'radd',
-      question: 'MCDA: Evaluating Build vs Buy vs Outsource. Criteria: Cost (30%), Strategic Fit (25%), Time (20%), Risk (15%), Scalability (10%). This is:',
+      question: 'Evaluating Build vs Buy vs Outsource with criteria: Cost (30%), Strategic Fit (25%), Time (20%), Risk (15%), Scalability (10%). This technique is:',
       options: [
         'Simple voting',
-        'Multi-Criteria Decision Analysis — weighted scoring across defined criteria for objective comparison',
+        'Multi-Criteria Decision Analysis (MCDA) — weighted scoring across defined criteria for objective comparison',
         'Random selection',
         'Cost-only analysis',
       ],
@@ -466,7 +466,7 @@ const cbapExamConfig: ExamConfig = {
     },
     {
       id: 37, ka: 'radd',
-      question: 'Transition Requirement: "Migrate 50K customer records from legacy CRM with zero data loss." This is classified as:',
+      question: '"Migrate 50K customer records from legacy CRM with zero data loss." This requirement is classified as:',
       options: [
         'Functional requirement',
         'Transition requirement — specific to migration from current to future state, not ongoing',
@@ -478,10 +478,10 @@ const cbapExamConfig: ExamConfig = {
     },
     {
       id: 38, ka: 'radd',
-      question: 'BA needs to model entity "Insurance Claim" with states: Filed → Under Review → More Info Needed → Approved/Denied → Closed. Best model:',
+      question: 'A BA needs to model the entity "Insurance Claim" with states: Filed → Under Review → More Info Needed → Approved/Denied → Closed. The best model is:',
       options: [
         'ERD',
-        'State Machine Diagram — shows entity lifecycle through valid state transitions and triggers',
+        'State Machine Diagram — shows the entity lifecycle through valid state transitions and triggers',
         'BPMN Process',
         'Use Case',
       ],
@@ -490,10 +490,10 @@ const cbapExamConfig: ExamConfig = {
     },
     {
       id: 39, ka: 'radd',
-      question: 'Enterprise has 20 APIs for different services. BA needs to model how they interact. Best model:',
+      question: 'An enterprise has 20 APIs for different services. The BA needs to model how they interact. The best model is:',
       options: [
         'ERD',
-        'System Integration / Interface Map — shows systems, APIs, data flows, protocols between services',
+        'System Integration / Interface Map — shows systems, APIs, data flows, and protocols between services',
         'State Diagram',
         'Decision Table',
       ],
@@ -502,10 +502,10 @@ const cbapExamConfig: ExamConfig = {
     },
     {
       id: 40, ka: 'radd',
-      question: 'TCO Analysis: Option A initial $500K, $100K/yr maintenance. Option B initial $200K, $50K/yr maintenance. 5-year TCO comparison:',
+      question: 'TCO Analysis: Option A costs $500K initial + $100K/yr maintenance. Option B costs $200K initial + $50K/yr maintenance. For a 5-year TCO comparison:',
       options: [
         'Only compare initial costs',
-        'A = $500K + $500K = $1M. B = $200K + $250K = $450K. But TCO also includes training, customization, opportunity cost, decommissioning',
+        'A = $500K + $500K = $1M. B = $200K + $250K = $450K. But TCO also includes training, customization, opportunity cost, and decommissioning',
         'They cost the same',
         'Compare first year only',
       ],
@@ -514,34 +514,34 @@ const cbapExamConfig: ExamConfig = {
     },
     {
       id: 41, ka: 'radd',
-      question: 'BA created 150 requirements + 20 models. Executive stakeholder: "I need the big picture, not details." BA should:',
+      question: 'A BA has created 150 requirements + 20 models. An executive stakeholder says: "I need the big picture, not details." The BA should:',
       options: [
         'Send all 150 requirements',
-        'Create Requirements Architecture view — high-level groupings, key dependencies, traceability to business objectives',
+        'Create a Requirements Architecture view — high-level groupings, key dependencies, and traceability to business objectives',
         'Remove all details',
-        'Schedule 4-hour review',
+        'Schedule a 4-hour review',
       ],
       correct: 1,
-      explanation: 'Adapt communication — executives need architecture view, not detailed requirements.',
+      explanation: 'Adapt communication — executives need an architecture view, not detailed requirements.',
     },
     {
       id: 42, ka: 'radd',
-      question: 'Solution recommendation: NPV analysis shows Option A = $2M, Option B = $1.5M but higher strategic alignment score. BA should:',
+      question: 'NPV analysis shows Option A = $2M, Option B = $1.5M but with a higher strategic alignment score. The BA should:',
       options: [
-        'Always recommend highest NPV',
-        'Present both with NPV AND strategic alignment — let stakeholders make informed decision with complete picture',
+        'Always recommend the highest NPV',
+        'Present both options with NPV AND strategic alignment — let stakeholders make an informed decision with the complete picture',
         'Choose Option B automatically',
         'Request more budget',
       ],
       correct: 1,
-      explanation: 'NPV is one factor. Strategic alignment is another. Present holistic view for informed decision.',
+      explanation: 'NPV is one factor. Strategic alignment is another. Present a holistic view for informed decision.',
     },
     {
       id: 43, ka: 'radd',
-      question: 'Enterprise Architecture alignment: New solution must comply with EA principles. BA should:',
+      question: 'A new solution must comply with Enterprise Architecture (EA) principles. The BA should:',
       options: [
         'Skip EA review — too slow',
-        'Engage Enterprise Architect early, map solution to EA principles, identify reusable enterprise components',
+        'Engage the Enterprise Architect early, map the solution to EA principles, and identify reusable enterprise components',
         'Build first, align later',
         'Only align if mandated',
       ],
@@ -549,73 +549,73 @@ const cbapExamConfig: ExamConfig = {
       explanation: 'EA alignment early prevents costly rework. Reuse enterprise components.',
     },
 
-    // ═══ Solution Evaluation — 14% → 7 câu ═══
+    // ═══ Solution Evaluation — 14% → 7 questions ═══
     {
       id: 44, ka: 'se',
-      question: 'Solution deployed 6 months. KPI: "Reduce order processing time from 48h to 24h." Measured: 36h. Assessment:',
+      question: 'A solution has been deployed for 6 months. KPI: "Reduce order processing time from 48h to 24h." Measured result: 36h. The assessment is:',
       options: [
         'Complete success',
-        'Partial success — improved 25% but gap remains. Investigate root causes: process bottlenecks, integration issues, user adoption',
-        'Complete failure — replace',
-        'Change KPI target to 36h',
+        'Partial success — improved 25% but a gap remains. Investigate root causes: process bottlenecks, integration issues, and user adoption',
+        'Complete failure — replace immediately',
+        'Change the KPI target to 36h',
       ],
       correct: 1,
       explanation: '36h vs target 24h: improved but gap remains. Investigate root causes.',
     },
     {
       id: 45, ka: 'se',
-      question: 'User satisfaction survey: 65% (target 80%). Users struggle with UI. BA identifies as:',
+      question: 'User satisfaction survey: 65% (target 80%). Users struggle with the UI. The BA identifies this as:',
       options: [
-        'Enterprise limitation',
-        'Solution limitation — product usability issue within the solution itself',
-        'External factor',
-        'Training issue only',
+        'An enterprise limitation',
+        'A solution limitation — a product usability issue within the solution itself',
+        'An external factor',
+        'A training issue only',
       ],
       correct: 1,
       explanation: 'UI usability = Solution limitation — issue within the product itself.',
     },
     {
       id: 46, ka: 'se',
-      question: 'Same scenario, but investigation reveals users weren\'t trained properly despite training plan. This is:',
+      question: 'Same scenario, but investigation reveals users weren\'t trained properly despite the training plan existing. This is:',
       options: [
-        'Solution limitation',
-        'Enterprise limitation — organizational failure to execute training plan',
-        'Vendor issue',
-        'Budget issue',
+        'A solution limitation',
+        'An enterprise limitation — an organizational failure to execute the training plan',
+        'A vendor issue',
+        'A budget issue',
       ],
       correct: 1,
       explanation: 'Training not executed = Enterprise limitation — organizational execution failure.',
     },
     {
       id: 47, ka: 'se',
-      question: 'Balanced Scorecard: Dashboard shows high usage (Internal Process), good adoption (Learning), revenue increase (Financial), but customer complaints increase. Conclusion:',
+      question: 'Balanced Scorecard: Dashboard shows high usage (Internal Process), good adoption (Learning & Growth), revenue increase (Financial), but customer complaints increase. The conclusion is:',
       options: [
-        'Solution successful — 3 of 4 positive',
-        'Customer perspective failing — investigate complaints, may undermine long-term financial gains',
+        'Solution is successful — 3 of 4 perspectives are positive',
+        'The Customer perspective is failing — investigate complaints, as they may undermine long-term financial gains',
         'Ignore complaints',
-        'Replace immediately',
+        'Replace the solution immediately',
       ],
       correct: 1,
       explanation: 'BSC requires ALL 4 perspectives. Customer complaints threaten long-term sustainability.',
     },
     {
       id: 48, ka: 'se',
-      question: 'Recommend Actions: When is "Do Nothing" a valid recommendation?',
+      question: 'When is "Do Nothing" a valid recommendation?',
       options: [
         'Never — always improve',
-        'When cost of change exceeds benefit, solution meets minimum requirements, no strategic driver for improvement',
+        'When the cost of change exceeds the benefit, the solution meets minimum requirements, and there is no strategic driver for improvement',
         'When stakeholders are busy',
         'When budget is available',
       ],
       correct: 1,
-      explanation: '"Do Nothing" valid when improvement cost > benefit and minimum needs are met.',
+      explanation: '"Do Nothing" is valid when improvement cost > benefit and minimum needs are met.',
     },
     {
       id: 49, ka: 'se',
-      question: 'BA measuring solution performance: KPIs measure output (reports generated) not outcome (decisions improved). CBAP-level fix:',
+      question: 'A BA measuring solution performance finds KPIs measure output (reports generated) not outcome (decisions improved). The CBAP-level fix is:',
       options: [
         'Output metrics are sufficient',
-        'Shift to outcome metrics — decision quality, time-to-decision, revenue impact from better decisions',
+        'Shift to outcome metrics — decision quality, time-to-decision, and revenue impact from better decisions',
         'Use both equally',
         'Remove all metrics',
       ],
@@ -624,11 +624,11 @@ const cbapExamConfig: ExamConfig = {
     },
     {
       id: 50, ka: 'se',
-      question: 'Post-implementation: Solution meets all original requirements but business environment changed significantly. Market shifted. Best approach:',
+      question: 'Post-implementation: The solution meets all original requirements but the business environment has changed significantly and the market has shifted. The best approach is:',
       options: [
-        'Solution successful — meets requirements',
-        'Requirements were correct at time but now outdated — reassess solution value against CURRENT needs, potentially trigger new initiative',
-        'Blame requirements team',
+        'The solution is successful — it meets requirements',
+        'The requirements were correct at the time but are now outdated — reassess solution value against CURRENT needs, potentially triggering a new initiative',
+        'Blame the requirements team',
         'Continue as planned',
       ],
       correct: 1,
