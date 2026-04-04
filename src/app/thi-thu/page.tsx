@@ -3,10 +3,22 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
     title: 'Thi thử — Practice Exam',
-    description: 'Đề thi thử CCBA & CBAP với giao diện interactive, bấm giờ, chấm điểm tự động và AI đánh giá kết quả.',
+    description: 'Đề thi thử ECBA, CCBA & CBAP với giao diện interactive, bấm giờ, chấm điểm tự động và AI đánh giá kết quả.',
 };
 
 const exams = [
+    {
+        slug: 'ecba-de-thi-thu',
+        title: 'ECBA Practice Exam',
+        subtitle: '50 câu · 60 phút · Foundational',
+        description: 'Đề thi mô phỏng ECBA với 50 câu trắc nghiệm kiến thức nền tảng BABOK v3 — phù hợp cho người mới bắt đầu nghề BA.',
+        icon: '🥉',
+        gradient: 'linear-gradient(135deg, #8B5CF6, #A78BFA)',
+        level: 'Entry',
+        passingScore: '70%',
+        questions: 50,
+        time: '60 phút',
+    },
     {
         slug: 'ccba-de-thi-thu',
         title: 'CCBA Practice Exam',
